@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Specialized Medical">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C9222F"/>
+      <stop offset="1" stop-color="#9F1923"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#g)"/>
+  <path d="M29 18h6v11h11v6H35v11h-6V35H18v-6h11V18z" fill="#fff"/>
+  <path d="M18 43c6.2-8.6 12.8-11.7 20.1-11.7 4.7 0 8.4 1.1 12.9 3.2" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="3" stroke-linecap="round"/>
+</svg>

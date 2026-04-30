@@ -1,0 +1,684 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <script>
+    (function (w, d) {
+      function siteRootPathname() {
+        var segs = w.location.pathname.split("/").filter(Boolean)
+        // Some hosting panels / preview URLs can include a filesystem-like prefix
+        // such as /home/<user>/public_html/<site>/... . If present, strip it so
+        // <base href> always points at the public site path.
+        var ph = segs.lastIndexOf("public_html")
+        if (ph !== -1) segs = segs.slice(ph + 1)
+        var leaf = { about: 1, services: 1, faq: 1, contact: 1, "clinical-stories": 1, thanks: 1, "404": 1 }
+        while (segs.length) {
+          var last = segs[segs.length - 1]
+          if (last === "equipment" && segs.length >= 2 && segs[segs.length - 2] === "services") {
+            segs.length -= 2
+            break
+          }
+          if (/\.html$/i.test(last)) {
+            segs.pop()
+            continue
+          }
+          if (leaf[last]) {
+            segs.pop()
+            continue
+          }
+          break
+        }
+        return "/" + (segs.join("/") + (segs.length ? "/" : ""))
+      }
+      var p = siteRootPathname()
+      var h = w.location.origin + (p === "/" ? "/" : p)
+      var b = d.createElement("base")
+      b.href = h
+      var m = d.head.querySelector("meta[charset]")
+      if (m && typeof m.insertAdjacentElement === "function") {
+        m.insertAdjacentElement("afterend", b)
+      } else if (m && m.nextSibling) {
+        d.head.insertBefore(b, m.nextSibling)
+      } else {
+        d.head.insertBefore(b, d.head.firstChild)
+      }
+    })(window, document)
+  </script>
+  <!-- sm-site-base -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services | Specialized Medical</title>
+  <meta name="description" content="Holter, extended Holter, event monitoring, and MCT with live-streaming ECG data, streamlined workflow, and zero-cost equipment—built around the S-Patch Monitoring System.">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/services.css">
+</head>
+<body>
+  <div class="site-root">
+﻿    <header class="site-header site-header--figma">
+      <div class="figma-container figma-header__inner site-header__inner">
+        <a href="./" class="figma-brand" aria-label="Specialized Medical home">
+          <img class="figma-brand__mark" src="images/figma-assets/Group 1261157085.svg" alt="" width="236" height="52" decoding="async">
+        </a>
+        <button type="button" class="nav-toggle nav-toggle--figma" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <button type="button" class="nav-overlay" aria-label="Close menu" hidden></button>
+        <nav id="primary-nav" class="figma-nav" aria-label="Primary">
+          <a class="figma-nav__link" href="./">Home</a>
+          <a class="figma-nav__link" href="about.html">About Us</a>
+          <a class="figma-nav__link is-active" href="services/">Services</a>
+          <a class="figma-nav__link" href="faq.html">FAQs</a>
+          <a class="figma-nav__link" href="contact.html">Contact</a>
+          <div class="figma-nav__mobile">
+            <a class="figma-nav__phone" href="tel:+18557732633">Call: 1-855-773-2633</a>
+            <div class="figma-nav__actions">
+              <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+              <a class="figma-btn figma-btn--solid" href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+            </div>
+          </div>
+        </nav>
+        <div class="figma-header__cta">
+          <a class="figma-phone" href="tel:+18557732633">
+            <img class="figma-phone__icon" src="icons/vector3527-jgyk.svg" alt="" width="14" height="14" decoding="async">
+            <span class="figma-phone__num">1-855-773-2633</span>
+          </a>
+          <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+          <a class="figma-header__portal" href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+        </div>
+      </div>
+    </header>
+
+
+
+
+
+
+
+
+
+<main class="services-page services-page--figma" data-design="figma-27-13">
+    <section class="svc-hero" aria-labelledby="svc-hero-heading">
+      <div class="svc-hero__plate">
+        <div class="svc-hero__bg" role="presentation"></div>
+        <div class="svc-hero__gradient" aria-hidden="true"></div>
+        <div class="figma-container svc-hero__inner">
+          <p class="figma-hero__pill">
+            <span class="figma-hero__pill-dot" aria-hidden="true"></span>
+            Our Services
+          </p>
+          <h1 id="svc-hero-heading" class="svc-hero__title">
+            <span class="svc-hero__title-line">Services Built for</span>
+            <span class="svc-hero__title-accent">Modern Physician Practices</span>
+          </h1>
+          <p class="svc-hero__lead">
+            Live ECG data, streamlined workflow, and turnkey monitoring support.
+          </p>
+          <div class="svc-hero__actions">
+            <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+            <a class="figma-btn figma-btn--solid" href="contact.html">Start Your No-Risk Beta Trial</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="figma-section svc-breakdown" aria-labelledby="svc-breakdown-heading">
+      <div class="figma-container">
+        <h2 id="svc-breakdown-heading" class="svc-breakdown__heading">
+          Services <span class="svc-breakdown__heading-accent">Summary</span>
+        </h2>
+        <p class="svc-breakdown__subhead">One system, Multiple Monitoring Options.</p>
+        <div class="svc-breakdown__grid">
+          <article class="svc-breakdown-card">
+            <h3 class="svc-breakdown-card__title">Holter</h3>
+            <p class="svc-breakdown-card__meta">24–48 hours</p>
+          </article>
+          <article class="svc-breakdown-card">
+            <h3 class="svc-breakdown-card__title">Extended Holter</h3>
+            <p class="svc-breakdown-card__meta">Greater than 48 hours up to 7 days</p>
+          </article>
+          <article class="svc-breakdown-card">
+            <h3 class="svc-breakdown-card__title">Extended Holter</h3>
+            <p class="svc-breakdown-card__meta">Greater than 7 days up to 14 days</p>
+          </article>
+          <article class="svc-breakdown-card">
+            <h3 class="svc-breakdown-card__title">Event Monitoring</h3>
+            <p class="svc-breakdown-card__meta">1 to 30 days</p>
+          </article>
+          <article class="svc-breakdown-card">
+            <h3 class="svc-breakdown-card__title">MCT (Telemetry)</h3>
+            <p class="svc-breakdown-card__meta">1 to 30 days</p>
+          </article>
+          <article class="svc-breakdown-card">
+            <h3 class="svc-breakdown-card__title">MCT (Telemetry)</h3>
+            <p class="svc-breakdown-card__meta">For post-TAVR patients</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="figma-section svc-split" aria-labelledby="svc-four-heading">
+      <div class="figma-container">
+        <div class="svc-split__inner">
+          <div class="svc-split__copy">
+            <h2 id="svc-four-heading" class="svc-split__title">
+              Four test types,<br>
+              <span class="svc-split__title-accent">one consistent workflow</span>
+            </h2>
+            <p class="svc-split__text">
+              Support Holter, Extended Holter, Event Monitoring, and Telemetry (MCT)
+              through a turnkey monitoring program built around the S-Patch Monitoring
+              System.
+            </p>
+          </div>
+          <div class="svc-split__media">
+            <img
+              src="images/figma-services/four-tests-device.jpg"
+              alt="Patient with cardiac monitoring device"
+              width="522"
+              height="662"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="figma-section svc-split svc-split--muted svc-split--live"
+      aria-labelledby="svc-live-heading"
+    >
+      <div class="figma-container">
+        <div class="svc-split__inner">
+          <div class="svc-split__media svc-split__media--live-ecg">
+            <div class="svc-live-ecg-card">
+              <div class="svc-live-ecg-card__frame">
+                <img
+                  src="images/figma-services/live-streaming-ecg.jpg"
+                  alt="Live ECG waveform display"
+                  width="522"
+                  height="390"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            </div>
+          </div>
+          <div class="svc-split__copy">
+            <h2 id="svc-live-heading" class="svc-split__title">
+              Live Streaming,<br>
+              <span class="svc-split__title-accent">Real-Time Data</span>
+            </h2>
+            <p class="svc-split__text">
+              Our platform is designed for continuous, resilient real-time data
+              streaming across a wide range of patient environments, including rural
+              areas. This supports uninterrupted data capture, reduces the
+              likelihood of incomplete studies, and gives physicians greater
+              confidence in every test. Data is sent live to our monitoring center—no
+              manual uploading, no data delays.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="figma-section svc-split" aria-labelledby="svc-spatch-heading">
+      <div class="figma-container">
+        <div class="svc-split__inner">
+          <div class="svc-split__copy">
+            <a class="svc-split__eyebrow" href="services/equipment.html">
+              <span class="svc-split__eyebrow-dot" aria-hidden="true"></span>
+              Monitoring Equipment Options
+            </a>
+            <h2 id="svc-spatch-heading" class="svc-split__title">
+              The S-Patch <span class="svc-split__title-accent">Monitoring System</span>
+            </h2>
+            <p class="svc-split__text">
+              <strong>Primary Featured System.</strong> The S-Patch Monitoring System is
+              Specialized Medical’s primary featured monitoring solution. It supports
+              Holter, Extended Holter, Event Monitoring, and Telemetry (MCT) while
+              delivering live-streaming, real-time ECG data through a compact,
+              patient-friendly design.
+            </p>
+            <p class="svc-split__text">
+              Our platform is designed for continuous, resilient real-time data streaming
+              across a wide range of patient environments, including rural areas. Data is
+              sent live to our monitoring center—no manual uploading and no data delays.
+            </p>
+            <ul class="svc-split__list">
+              <li>Primary featured system for Specialized Medical</li>
+              <li>Supports Holter, Extended Holter, Event Monitoring, and Telemetry (MCT)</li>
+              <li>Live-streaming, real-time ECG data</li>
+              <li>No manual uploading</li>
+            </ul>
+            <a class="figma-btn figma-btn--solid" href="services/equipment.html">
+              Compare Monitoring Systems
+            </a>
+          </div>
+          <div class="svc-split__media">
+            <img
+              src="images/figma-services/s-patch.jpg"
+              alt="S-Patch monitoring system in use"
+              width="522"
+              height="727"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="figma-section svc-split svc-split--muted svc-split--lead"
+      aria-labelledby="svc-lead-heading"
+    >
+      <div class="figma-container">
+        <div class="svc-split__inner">
+          <div class="svc-split__media">
+            <img
+              src="images/figma-services/lead-wire.jpg"
+              alt="Lead-wire monitoring system"
+              width="522"
+              height="748"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <div class="svc-split__copy">
+            <h2 id="svc-lead-heading" class="svc-split__title">
+              <span class="svc-split__title-line">Lead-Wire</span><br>
+              <span class="svc-split__title-accent">Monitoring System</span>
+            </h2>
+            <p class="svc-split__text">
+              <strong>Secondary / legacy monitoring option.</strong> Lead-Wire remains
+              available as an older secondary monitoring option where appropriate. It is
+              shown separately so practices understand it is not the primary system
+              being promoted.
+            </p>
+            <ul class="svc-split__list">
+              <li>Secondary option where needed</li>
+              <li>Separate system from S-Patch</li>
+            </ul>
+            <a class="figma-btn figma-btn--solid" href="services/equipment.html">
+              Compare Monitoring Systems
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="figma-section svc-workflow" aria-labelledby="svc-workflow-heading">
+      <div class="figma-container">
+        <h2 id="svc-workflow-heading" class="svc-workflow__heading">
+          Streamlined Workflow<br>
+          <span class="svc-workflow__heading-accent">for Your Office</span>
+        </h2>
+        <p class="svc-workflow__sub">
+          Your medical assistant completes a simple 3-step process:
+          <strong>Enroll in web Portal → Hook Up → Disconnect</strong>
+          <strong>(Under 15 Minutes)</strong>
+        </p>
+        <div class="svc-workflow__panel">
+          <p>Once the patient leaves, we take over the rest:</p>
+          <div class="svc-workflow__grid">
+            <div class="svc-workflow__cell">
+              <span class="svc-workflow__dot" aria-hidden="true"></span>
+              24/7 live monitoring across all test types
+            </div>
+            <div class="svc-workflow__cell">
+              <span class="svc-workflow__dot" aria-hidden="true"></span>
+              Real-time arrhythmia alerts by email, text, or phone call
+            </div>
+            <div class="svc-workflow__cell">
+              <span class="svc-workflow__dot" aria-hidden="true"></span>
+              Automatic generation and delivery of final reports
+            </div>
+            <div class="svc-workflow__cell">
+              <span class="svc-workflow__dot" aria-hidden="true"></span>
+              Patient support through our 24/7 multilingual call center
+            </div>
+          </div>
+          <p class="svc-workflow__footer">
+            When the patient returns the device, it is ready for the next patient.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="figma-section svc-reporting" aria-labelledby="svc-reporting-heading">
+      <div class="figma-container">
+        <h2 id="svc-reporting-heading" class="svc-reporting__heading">
+          Detailed Reporting That
+          <span class="svc-reporting__heading-accent">
+            Supports Faster Clinical Decisions.
+          </span>
+        </h2>
+        <div class="svc-reporting__inner">
+          <div class="svc-reporting__blocks">
+            <div class="svc-reporting__block">
+              <h3>Symptomatic vs. Asymptomatic Clarity</h3>
+              <p>
+                Patient symptoms are entered digitally during the test and
+                automatically populate on the final report above the corresponding ECG
+                strips, making it immediately clear whether an event was symptomatic
+                or asymptomatic—with no separate handwritten symptom diary required.
+              </p>
+            </div>
+            <div class="svc-reporting__block">
+              <h3>ECG strip detail</h3>
+              <p>
+                Experience industry-leading ECG clarity, including precise P-wave
+                definition. Our reports provide the granular detail necessary for
+                accurate rhythm interpretation.
+              </p>
+            </div>
+            <div class="svc-reporting__block">
+              <h3>EMR-Ready Final Reports</h3>
+              <p>
+                Stop wasting time with manual data entry. Final reports are EMR-ready
+                and can be pushed automatically into your existing system for a
+                seamless digital record.
+              </p>
+            </div>
+            <div class="svc-reporting__block">
+              <h3>Streamlined Physician Interpretation Workflow</h3>
+              <p>
+                We have simplified the professional review process to fit into your
+                busy schedule. Through our secure provider portal, you can manage the
+                entire interpretation cycle in one place:
+              </p>
+              <ul class="svc-reporting__sublist">
+                <li>
+                  <span class="svc-reporting__label">Electronic review:</span>
+                  Access comprehensive data and full-disclosure strips from any secure
+                  device.
+                </li>
+                <li>
+                  <span class="svc-reporting__label">
+                    Professional interpretation:
+                  </span>
+                  Document your findings directly within the digital report interface.
+                </li>
+                <li>
+                  <span class="svc-reporting__label">
+                    Digital authentication:
+                  </span>
+                  Finalize reports with an electronic signature, date, and time
+                  stamp—ready for billing and clinical filing.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="svc-reporting__shot" id="svc-report-frame">
+            <img
+              id="svc-report-img"
+              width="630"
+              height="925"
+              loading="eager"
+              decoding="async"
+              alt=""
+            >
+            <div class="svc-reporting__dots" aria-hidden="true"><button type="button" class="svc-reporting__dot is-active" data-report-dot="0" aria-label="Show report 1"></button><button type="button" class="svc-reporting__dot" data-report-dot="1" aria-label="Show report 2"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="figma-section svc-practice" aria-labelledby="svc-practice-heading">
+      <div class="figma-container">
+        <h2 id="svc-practice-heading" class="svc-practice__heading">
+          Practice Integration<br>
+          <span class="svc-practice__heading-accent">Made Easy</span>
+        </h2>
+        <ul class="svc-practice__list">
+            <li class="svc-practice__item">Final reports are EMR-ready and can be automatically pushed into your system</li>
+            <li class="svc-practice__item">Electronically review, interpret, date, and sign final reports</li>
+            <li class="svc-practice__item">Customized billing templates with all CPT and ICD-10 codes provided</li>
+            <li class="svc-practice__item">We work directly with your billing staff or third-party biller for seamless claims submission</li>
+            <li class="svc-practice__item">Our portal tracks device usage and alerts your staff about any inactive or unreturned monitors</li>
+        </ul>
+      </div>
+    </section>
+
+    <section
+      class="figma-section svc-cases"
+      id="clinical-stories"
+      aria-labelledby="svc-cases-heading"
+    >
+      <div class="figma-container">
+        <h2 id="svc-cases-heading" class="svc-cases__heading">
+          Clinical <span class="svc-cases__heading-accent">Proof</span>
+        </h2>
+        <p class="svc-cases__intro">
+          Featured patient and physician experience. Additional stories are available
+          below on request.
+        </p>
+        <div class="svc-cases__list">
+          <article class="svc-case-card svc-case-card--featured">
+            <div>
+              <div class="svc-case-card__media">
+                <img
+                  src="images/figma-services/case-01.jpg"
+                  alt=""
+                  width="305"
+                  height="394"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <p class="svc-case-card__caption">S-Patch patient experience</p>
+            </div>
+            <div>
+              <span class="svc-case-card__tag">S-Patch</span>
+              <h3 class="svc-case-card__title">Easy for Patients to Wear</h3>
+              <p class="svc-case-card__body">"I wore the S-Patch Monitor from Specialized Medical all week. It was easy and hassle free. Was not a problem at all. The monitor I wore was very small. I didn't even realize I was wearing it. The technology is incredible. I'm looking forward to seeing the results, since I'm pretty sure I have occasional Afib. This monitor system is SO MUCH better than the old way!"</p>
+              <div class="svc-case-card__stars" aria-hidden="true"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"></div>
+              <p class="svc-case-card__by">- R. Gall</p>
+            </div>
+          </article>
+        </div>
+        <div class="svc-cases__more-wrap">
+          <a
+            class="figma-btn figma-btn--outline-dark svc-cases__more-btn"
+            href="clinical-stories.html"
+          >View clinical stories</a>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="figma-section svc-split svc-split--symptom"
+      aria-labelledby="svc-symptom-heading"
+    >
+      <div class="figma-container">
+        <div class="svc-split__inner">
+          <div class="figma-ecg__visual">
+            <video
+              class="figma-ecg__video"
+              src="video/WhatsApp%20Video%202026-04-02%20at%2010.32.10%20PM.mp4#t=0.001"
+              poster="images/figma-services/live-streaming-ecg.jpg"
+              controls
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="S-Patch app: live ECG and symptom logging"
+            ></video>
+          </div>
+          <div class="svc-split__copy">
+            <h2 id="svc-symptom-heading" class="svc-split__title">
+              See Live ECG &amp;<br>
+              <span class="svc-split__title-accent">Symptom Logging</span>
+            </h2>
+            <p class="svc-split__text">
+              Our platform streams ECG data in real-time, allowing physicians to
+              monitor patients remotely with confidence. Patient symptoms are entered
+              digitally and automatically populate on the final report, making it
+              immediately clear whether an event was symptomatic or asymptomatic.
+            </p>
+            <ul class="svc-split__list">
+              <li>Live ECG streaming for remote monitoring workflows</li>
+              <li>Digital symptom logging tied to ECG events</li>
+              <li>Clear symptomatic vs. asymptomatic labeling on the final report</li>
+            </ul>
+            <p class="svc-split__text">
+              Symptoms are logged digitally and matched directly to ECG events on the
+              final report.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="figma-section svc-patient svc-split" aria-labelledby="svc-patient-heading">
+      <div class="figma-container">
+        <div class="svc-split__inner">
+          <div class="svc-split__copy">
+            <h2 id="svc-patient-heading" class="svc-split__title">
+              Patient-Friendly<br>
+              <span class="svc-split__title-accent">Design</span>
+            </h2>
+            <p class="svc-split__text">
+              <strong>S-Patch</strong> weighs 0.6 oz (less than four sheets of paper),
+              runs at least 10 days per battery, and is water-resistant (IP55)—with
+              industry-leading ECG clarity, including precise P-wave definition.
+              <strong>Lead-Wire</strong> specifications differ; see
+              <a class="svc-split__inline-link" href="services/equipment.html">Monitoring Equipment Options</a>.
+            </p>
+          </div>
+          <div class="svc-split__media" style="border-radius: 30px">
+            <img
+              src="images/figma-services/patient-friendly.jpg"
+              alt="Hand holding compact cardiac monitor"
+              width="630"
+              height="604"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="figma-section svc-tavr" aria-labelledby="svc-tavr-heading">
+      <div class="figma-container">
+        <h2 id="svc-tavr-heading" class="svc-tavr__heading">
+          Ideal for <span class="svc-tavr__heading-accent">TAVR Programs</span>
+        </h2>
+        <p class="svc-tavr__sub">Post-TAVR Monitoring, Built for Continuity</p>
+        <p class="svc-tavr__text">
+          Patients recovering from TAVR remain at risk for delayed conduction
+          abnormalities and other clinically significant rhythm changes, making
+          reliable post-procedure monitoring essential. Our monitoring system
+          combines the S-Patch ECG monitor with an adaptive, multi-path cellular
+          transmission platform designed for continuous, real-time ECG streaming.
+          The differentiator is not simply the monitor itself, but the resilient
+          connectivity infrastructure behind it, which helps maintain transmission
+          across changing environments, including rural and lower-coverage areas.
+          This supports more consistent ECG data capture and faster awareness of
+          actionable rhythm changes to inform timely clinical decision-making.
+        </p>
+      </div>
+    </section>
+
+    <section class="figma-section figma-cta svc-figma-cta" aria-labelledby="svc-cta-heading">
+      <div class="figma-container">
+        <div class="figma-cta__box">
+          <h2
+            id="svc-cta-heading"
+            class="figma-h2 figma-h2--center figma-h2--narrow"
+          >
+            Start Your No-Risk<br>
+            <span class="figma-h2__accent">Beta Trial</span>
+          </h2>
+          <p class="figma-cta__p figma-cta__p--lead">
+            See how Specialized Medical can support your practice with: live-streaming
+            ECG data; simplified office workflow.
+          </p>
+          <p class="figma-cta__p">Anyone can make promises. We would rather prove it. Try Specialized Medical on a few patients with no hassle and no obligation.</p>
+          <div class="figma-cta__actions">
+            <a class="figma-btn figma-btn--solid" href="contact.html">
+              Start Your No-Risk Beta Trial
+            </a>
+            <a class="figma-cta__talk" href="contact.html">
+                Talk to our team →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+﻿    <footer class="site-footer site-footer--figma">
+      <div class="figma-container">
+        <div class="figma-footer__hr" aria-hidden="true"></div>
+        <div class="figma-footer__main">
+          <div class="figma-footer__brand">
+            <a href="./" class="figma-brand figma-brand--footer">
+              <img class="figma-brand__mark" src="images/figma-assets/Group 1261157085.svg" alt="" width="412" height="90" decoding="async">
+            </a>
+            <p class="figma-footer__tagline">Turnkey cardiac monitoring. Live ECG data. S-Patch as the primary featured system.</p>
+          </div>
+          <div class="figma-footer__contact">
+            <nav class="figma-footer__nav" aria-label="Footer">
+              <a href="./">Home</a>
+              <a href="about.html">About Us</a>
+             <a href="services.html">Services</a>
+              <a href="faq.html">FAQs</a>
+              <a href="contact.html">Contact</a>
+              <a href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+            </nav>
+            <div class="figma-footer__line">
+              <span class="figma-footer__icon figma-footer__icon--phone" aria-hidden="true">
+                <img src="icons/vector3527-jgyk.svg" alt="Phone Icon" width="20" height="20" decoding="async">
+              </span>
+              <a class="figma-footer__link" href="tel:+18557732633">
+                <span class="figma-footer__muted">1-855-SPEC-MED</span> 
+                <span class="figma-footer__strong">(1-855-773-2633)</span>
+              </a>
+            </div>
+            <div class="figma-footer__line">
+              <img src="icons/fi62447103527-gtjs.svg" alt="" width="20" height="20" decoding="async">
+              <a href="mailto:info@specialized-med.com">info@specialized-med.com</a>
+            </div>
+            <div class="figma-footer__line">
+              <img src="images/figma-assets/location_icon.png" alt="" width="20" height="20" decoding="async">
+              <p class="figma-footer__address">Specialized Medical, LLC 34145 Pacific Coast Highway, #700 Dana Point, CA 92629</p>
+            </div>
+          </div>
+        </div>
+        <div class="figma-footer__triple">
+          <span>Mobile Cardiac Telemetry</span>
+          <span>Holter Monitoring</span>
+          <span>Event Monitoring</span>
+        </div>
+        <div class="figma-footer__hr" aria-hidden="true"></div>
+        <div class="figma-footer__bottom">
+          <p class="figma-footer__copy">© <span id="footer-year">2026</span> Specialized Medical, LLC. All rights reserved.</p>
+          <div class="figma-footer__social">
+            <img src="images/figma-assets/hipaa-badge.png" alt="HIPAA" width="69" height="20" class="figma-footer__hipaa" loading="lazy" decoding="async">
+            <a href="https://www.facebook.com/specializedmedical" class="figma-footer__fb" aria-label="Facebook">
+              <img src="images/facebook-like.jpg" alt="Like us on Facebook" width="90" height="26" loading="lazy" decoding="async">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+  </div>
+  <script src="js/main.js?v=20260430" defer></script>
+  <script src="js/services-report-carousel.js" defer></script>
+</body>
+</html>

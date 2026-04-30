@@ -1,0 +1,982 @@
+/* -------------------------------------------------------------------------- */
+/* Services — Figma SERVICES frame (node 27:13, CEqlbeRjRpITLLtOzvvVUQ)      */
+/* -------------------------------------------------------------------------- */
+
+.services-page--figma {
+  overflow-x: hidden;
+  background: #fff;
+}
+
+/* ----- Hero ----- */
+.svc-hero {
+  padding: var(--page-hero-gutter) 0 0;
+}
+
+.svc-hero__plate {
+  position: relative;
+  max-width: 1430px;
+  margin: 0 auto;
+  min-height: min(550px, 88vh);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+}
+
+.svc-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/figma-services/Group%201261157514.png");
+  background-size: cover;
+  /* Keep subjects (two people) visible: bias to top-right */
+  background-position: right center;
+  pointer-events: none;
+}
+
+/* Clinical Stories page uses a different hero banner */
+.services-page[data-page="clinical-stories"] .svc-hero__bg {
+  background-image: url("../images/figma-services/Group%201261157514.png");
+  background-position: right center;
+}
+
+.svc-hero__gradient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* Left half fades to transparent; right half is full image */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.svc-hero .figma-container.svc-hero__inner {
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  z-index: 1;
+  padding-top: var(--hero-plate-inner-pt);
+  padding-bottom: var(--hero-plate-inner-pb);
+  padding-inline: var(--figma-inline);
+  max-width: 720px;
+}
+
+.svc-hero__title {
+  margin: 0 0 1rem;
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #231f1e;
+}
+
+.svc-hero__title-line {
+  display: inline;
+}
+
+.svc-hero__title-accent {
+  display: inline;
+  margin-top: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-red);
+}
+
+.svc-hero__lead {
+  margin: 0 0 1.75rem;
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(35, 31, 30, 0.7);
+}
+
+.svc-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+}
+
+/* ----- Full test breakdown ----- */
+.svc-breakdown {
+  padding: var(--section-y-md-wide) 0;
+  background: #fff;
+}
+
+.svc-breakdown__heading {
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 400;
+  text-align: left;
+  color: #231f1e;
+  margin: 0 0 clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.15;
+}
+
+.svc-breakdown__heading-accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-red);
+}
+
+.svc-breakdown__subhead {
+  margin: -0.75rem 0 1.25rem;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgba(35, 31, 30, 0.65);
+  text-align: left;
+  max-width: 42rem;
+}
+
+.svc-breakdown__grid {
+  display: grid;
+  /* Fluid grid prevents cramped/cut cards on mid-width screens */
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.65rem;
+}
+
+.svc-breakdown-card {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 1rem 0.85rem 1.1rem;
+  min-height: 146px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.svc-breakdown-card__title {
+  margin: 0;
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #231f1e;
+  text-transform: capitalize;
+}
+
+.svc-breakdown-card__meta {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: var(--color-red);
+  flex: 1;
+}
+
+/* ----- Split sections ----- */
+.svc-split {
+  padding: var(--section-y-md-wide) 0;
+  background: #fff;
+}
+
+.svc-split--muted {
+  background: #fafafa;
+}
+
+.svc-split__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 522px);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  align-items: center;
+}
+
+.svc-split--reverse .svc-split__inner {
+  direction: rtl;
+}
+
+.svc-split--reverse .svc-split__inner > * {
+  direction: ltr;
+}
+
+.svc-split__copy {
+  min-width: 0;
+}
+
+.svc-split__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0.85rem 0.2rem 0.65rem;
+  margin: 0 0 1rem;
+  border: 1px solid rgba(35, 31, 30, 0.7);
+  border-radius: 43px;
+  font-size: 0.875rem;
+  color: rgba(35, 31, 30, 0.7);
+  text-decoration: none;
+}
+
+.svc-split__eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-red);
+}
+
+.svc-split__title {
+  margin: 0 0 1rem;
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: #231f1e;
+}
+
+.svc-split__title-accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-red);
+}
+
+.svc-split__text {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgba(35, 31, 30, 0.5);
+}
+
+.svc-split__text:last-of-type {
+  margin-bottom: 1.25rem;
+}
+
+.svc-split__list {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.svc-split__list li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgba(35, 31, 30, 0.7);
+}
+
+.svc-split__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-red);
+}
+
+@media (max-width: 900px) {
+  .svc-split__list li::before,
+  .svc-workflow__dot,
+  .svc-practice__item::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .svc-split__list li::before,
+  .svc-workflow__dot,
+  .svc-practice__item::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .svc-practice__item {
+    font-size: 0.9375rem;
+  }
+}
+
+.svc-split__media {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(35, 31, 30, 0.1);
+  background: #f4f4f4;
+}
+
+.svc-split__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* Live Streaming (Figma node 27:76) — image left, copy right; label + framed ECG */
+.svc-split__media--live-ecg {
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.svc-live-ecg-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: clamp(0.85rem, 2vw, 1rem);
+  box-shadow: 0 16px 48px rgba(35, 31, 30, 0.1);
+}
+
+.svc-live-ecg-card__label {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1e3a5f;
+}
+
+.svc-live-ecg-card__frame {
+  border-radius: 12px;
+  border: 1px solid #1e3a5f;
+  overflow: hidden;
+  background: #e8f2fa;
+}
+
+.svc-live-ecg-card__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.svc-split--live .svc-split__text {
+  line-height: 19px;
+}
+
+/* Lead-Wire (Figma node 27:278) — image left, copy right; intro line-height 19px */
+.svc-split--lead .svc-split__copy > .svc-split__text {
+  line-height: 19px;
+}
+
+.svc-split--lead .svc-split__title {
+  line-height: 1.125;
+}
+
+.svc-split--lead .svc-split__list li {
+  line-height: 24px;
+}
+
+.svc-split--lead .svc-split__list li::before {
+  /* Center bullet relative to 24px line-height text */
+  top: 8px;
+}
+
+.svc-split__media--patient-radius {
+  border-radius: 30px;
+}
+
+/* See Live ECG + app video (Figma node 27:358) — video left, copy right */
+.svc-split--symptom .svc-split__inner {
+  grid-template-columns: minmax(0, 414px) minmax(0, 1fr);
+  align-items: center;
+}
+
+.figma-ecg__visual {
+  position: relative;
+  width: 100%;
+  max-width: 414px;
+  aspect-ratio: 414 / 746;
+  border-radius: 20px;
+  overflow: hidden;
+  /* Light matte so iOS does not sit on solid black before poster / decode */
+  background: #ececec;
+  box-shadow: 0 16px 48px rgba(35, 31, 30, 0.1);
+}
+
+.figma-ecg__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: contain;
+  background-color: #ececec;
+}
+
+.svc-split--symptom .svc-split__copy > .svc-split__text {
+  line-height: 24px;
+  color: rgba(35, 31, 30, 0.7);
+}
+
+.svc-split--symptom .svc-split__list li {
+  line-height: 24px;
+}
+
+@media (max-width: 1100px) {
+  /* Tablet + mobile: stack media above copy */
+  .svc-split--symptom .svc-split__inner {
+    grid-template-columns: 1fr;
+    gap: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  .svc-split--symptom .figma-ecg__visual {
+    max-width: min(360px, 100%);
+    margin: 0 auto;
+    /* Reduce vertical bloat on narrow screens */
+    max-height: min(72vh, 640px);
+    aspect-ratio: 9 / 16;
+  }
+}
+
+/* ----- Workflow ----- */
+.svc-workflow {
+  padding: var(--section-y-lg) 0;
+  background: #fff;
+}
+
+.svc-workflow__heading {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #231f1e;
+  margin: 0 0 0.75rem;
+}
+
+.svc-workflow__heading-accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-red);
+}
+
+.svc-workflow__sub {
+  text-align: center;
+  max-width: 52rem;
+  margin: 0 auto 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(35, 31, 30, 0.7);
+}
+
+.svc-workflow__panel {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.svc-workflow__panel > p {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #231f1e;
+  margin: 0 0 1.25rem;
+}
+
+.svc-workflow__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.svc-workflow__cell {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 74px;
+  padding: 0.85rem 1rem;
+  background: rgba(217, 217, 217, 0.29);
+  border-radius: 10px;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgba(35, 31, 30, 0.7);
+}
+
+.svc-workflow__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-red);
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+p.svc-workflow__footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: rgba(201, 34, 47, 1);
+  font-weight: 500;
+}
+
+/* ----- Practice integration ----- */
+.svc-practice {
+  padding: var(--section-y-lg) 0;
+  background: #fafafa;
+}
+
+.svc-practice__heading {
+  text-align: center;
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #231f1e;
+  margin: 0 0 clamp(1.5rem, 3vw, 2rem);
+}
+
+.svc-practice__heading-accent {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: rgba(201, 34, 47, 1);
+}
+
+.svc-practice__list {
+  max-width: 1064px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.svc-practice__item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 0.75rem;
+  min-height: 74px;
+  padding: 0.85rem 1.25rem;
+  background: rgba(217, 217, 217, 0.29);
+  border-radius: 10px;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgba(35, 31, 30, 0.7);
+}
+
+.svc-practice__item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-red);
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+/* ----- Detailed reporting ----- */
+.svc-reporting {
+  padding: var(--section-y-lg) 0;
+  background: #fff;
+}
+
+.svc-reporting__heading {
+  text-align: center;
+  font-size: clamp(1.75rem, 3.2vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #231f1e;
+  margin: 0 0 clamp(2rem, 4vw, 3rem);
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.svc-reporting__heading-accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-red);
+}
+
+.svc-reporting__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 630px);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.svc-reporting__blocks {
+  min-width: 0;
+}
+
+.svc-reporting__block {
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.svc-reporting__block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.svc-reporting__block h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #231f1e;
+  text-transform: capitalize;
+}
+
+.svc-reporting__block p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(35, 31, 30, 0.5);
+}
+
+.svc-reporting__sublist {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.svc-reporting__sublist li {
+  margin-bottom: 0.65rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(35, 31, 30, 0.7);
+}
+
+.svc-reporting__sublist strong {
+  color: #231f1e;
+  font-weight: 500;
+}
+
+.svc-reporting__label {
+  font-weight: 500;
+  color: #231f1e;
+}
+
+.svc-reporting__shot {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* Keep the "auto-scroll" report viewport compact so both screenshots feel scrollable on mobile. */
+  height: min(720px, 68vh);
+}
+
+.svc-reporting__shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  will-change: transform;
+}
+
+.svc-reporting__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.svc-reporting__dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(35, 31, 30, 0.25);
+  cursor: pointer;
+}
+
+.svc-reporting__dot.is-active {
+  background: var(--color-red);
+}
+
+/* ----- Clinical proof ----- */
+.svc-cases {
+  padding: var(--section-y-lg) 0;
+  background: #fafafa;
+}
+
+.svc-cases__heading {
+  text-align: center;
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 400;
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+  color: #231f1e;
+}
+
+.svc-cases__heading-accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-red);
+}
+
+.svc-cases__intro {
+  margin: 0 auto clamp(1.5rem, 3vw, 2rem);
+  max-width: 42rem;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(35, 31, 30, 0.65);
+}
+
+.svc-cases__more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+}
+
+.svc-cases__list--more {
+  margin-top: 1.5rem;
+}
+
+.svc-case-card--featured {
+  border-color: rgba(201, 34, 47, 0.2);
+}
+
+.svc-split__inline-link {
+  color: var(--color-red);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.svc-split__inline-link:hover {
+  color: #231f1e;
+}
+
+.svc-cases__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.svc-case-card {
+  display: grid;
+  grid-template-columns: minmax(0, 305px) minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  align-items: start;
+}
+
+.svc-cases__list--more .svc-case-card {
+  scroll-margin-top: 5.5rem;
+}
+
+.svc-case-card > div {
+  min-width: 0;
+}
+
+.svc-case-card__media {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  background: #f4f4f4;
+  height: 420px;
+}
+
+.svc-case-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.svc-case-card__caption {
+  margin: 0.5rem 0 0;
+  font-size: 0.625rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: rgba(35, 31, 30, 0.75);
+  text-align: center;
+}
+
+.svc-case-card__tag {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-red);
+  margin-bottom: 0.35rem;
+}
+
+.svc-case-card__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #231f1e;
+}
+
+.svc-case-card__body {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(35, 31, 30, 0.5);
+  white-space: pre-line;
+}
+
+.svc-case-card__stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 0.35rem;
+}
+
+.svc-case-card__stars img {
+  width: 24px;
+  height: 24px;
+}
+
+.svc-case-card__by {
+  margin: 0;
+  font-size: 1rem;
+  color: #231f1e;
+}
+
+/* ----- Patient-friendly + TAVR ----- */
+.svc-patient {
+  padding: var(--section-y-lg) 0;
+  background: #fff;
+}
+
+.svc-tavr {
+  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(3rem, 7vw, 5rem);
+  background: #fff;
+  text-align: center;
+}
+
+.svc-tavr__heading {
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 400;
+  margin: 0 0 1rem;
+  color: #231f1e;
+}
+
+.svc-tavr__heading-accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-red);
+}
+
+.svc-tavr__sub {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  color: rgba(35, 31, 30, 0.5);
+}
+
+.svc-tavr__text {
+  margin: 0 auto;
+  max-width: 66rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(35, 31, 30, 0.5);
+}
+
+.svc-figma-cta {
+  padding-bottom: var(--section-y-lg);
+}
+
+@media (max-width: 700px) {
+  .svc-hero .figma-container.svc-hero__inner {
+    padding-top: 2.5rem;
+  }
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 1200px) {
+  .svc-breakdown__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .svc-breakdown__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .svc-split__inner,
+  .svc-reporting__inner,
+  .svc-case-card {
+    grid-template-columns: 1fr;
+  }
+
+  /* Mobile/tablet: keep case image filling its media frame. */
+  .svc-cases__list--more .svc-case-card__media {
+    height: 420px;
+  }
+
+  .svc-cases__list--more .svc-case-card__media img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Mobile/tablet: image first, then content */
+  .svc-split__media {
+    order: -1;
+  }
+
+  .svc-split--reverse .svc-split__inner {
+    direction: ltr;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .svc-breakdown__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .svc-reporting__shot {
+    height: min(560px, 62vh);
+  }
+
+  .svc-workflow__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-hero__plate {
+    min-height: min(480px, 80vh);
+    border-radius: 16px;
+  }
+
+  .svc-hero__gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.75) 100%
+    );
+  }
+
+  .svc-figma-cta .figma-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .svc-figma-cta .figma-btn--solid {
+    width: 100%;
+    text-align: center;
+  }
+
+  .svc-figma-cta .figma-cta__talk {
+    text-align: center;
+  }
+}

@@ -1,0 +1,476 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <script>
+    (function (w, d) {
+      function siteRootPathname() {
+        var segs = w.location.pathname.split("/").filter(Boolean)
+        // Some hosting panels / preview URLs can include a filesystem-like prefix
+        // such as /home/<user>/public_html/<site>/... . If present, strip it so
+        // <base href> always points at the public site path.
+        var ph = segs.lastIndexOf("public_html")
+        if (ph !== -1) segs = segs.slice(ph + 1)
+        var leaf = { about: 1, services: 1, faq: 1, contact: 1, "clinical-stories": 1, thanks: 1, "404": 1 }
+        while (segs.length) {
+          var last = segs[segs.length - 1]
+          if (last === "equipment" && segs.length >= 2 && segs[segs.length - 2] === "services") {
+            segs.length -= 2
+            break
+          }
+          if (/\.html$/i.test(last)) {
+            segs.pop()
+            continue
+          }
+          if (leaf[last]) {
+            segs.pop()
+            continue
+          }
+          break
+        }
+        return "/" + (segs.join("/") + (segs.length ? "/" : ""))
+      }
+      var p = siteRootPathname()
+      var h = w.location.origin + (p === "/" ? "/" : p)
+      var b = d.createElement("base")
+      b.href = h
+      var m = d.head.querySelector("meta[charset]")
+      if (m && typeof m.insertAdjacentElement === "function") {
+        m.insertAdjacentElement("afterend", b)
+      } else if (m && m.nextSibling) {
+        d.head.insertBefore(b, m.nextSibling)
+      } else {
+        d.head.insertBefore(b, d.head.firstChild)
+      }
+    })(window, document)
+  </script>
+  <!-- sm-site-base -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ | Specialized Medical</title>
+  <meta name="description" content="Everything you need to know about Specialized Medical's cardiac monitoring services—workflow, reports, billing, supplies, patient experience, and the no-risk beta trial.">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/faq.css">
+</head>
+<body>
+  <div class="site-root">
+﻿    <header class="site-header site-header--figma">
+      <div class="figma-container figma-header__inner site-header__inner">
+        <a href="./" class="figma-brand" aria-label="Specialized Medical home">
+          <img class="figma-brand__mark" src="images/figma-assets/Group 1261157085.svg" alt="" width="236" height="52" decoding="async">
+        </a>
+        <button type="button" class="nav-toggle nav-toggle--figma" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <button type="button" class="nav-overlay" aria-label="Close menu" hidden></button>
+        <nav id="primary-nav" class="figma-nav" aria-label="Primary">
+          <a class="figma-nav__link" href="./">Home</a>
+          <a class="figma-nav__link" href="about.html">About Us</a>
+         <a class="figma-nav__link" href="services.html">Services</a>
+          <a class="figma-nav__link is-active" href="faq.html">FAQs</a>
+          <a class="figma-nav__link" href="contact.html">Contact</a>
+          <div class="figma-nav__mobile">
+            <a class="figma-nav__phone" href="tel:+18557732633">Call: 1-855-773-2633</a>
+            <div class="figma-nav__actions">
+              <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+              <a class="figma-btn figma-btn--solid" href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+            </div>
+          </div>
+        </nav>
+        <div class="figma-header__cta">
+          <a class="figma-phone" href="tel:+18557732633">
+            <img class="figma-phone__icon" src="icons/vector3527-jgyk.svg" alt="" width="14" height="14" decoding="async">
+            <span class="figma-phone__num">1-855-773-2633</span>
+          </a>
+          <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+          <a class="figma-header__portal" href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+        </div>
+      </div>
+    </header>
+
+
+
+
+
+
+
+
+
+    <main class="faq-page faq-page--figma" data-design="figma-17-396">
+      <section class="faq-figma-hero" aria-labelledby="faq-hero-heading">
+        <div class="faq-figma-hero__plate">
+          <div class="faq-figma-hero__bg" role="presentation"></div>
+          <div class="faq-figma-hero__gradient" aria-hidden="true"></div>
+          <div class="figma-container faq-figma-hero__inner">
+            <p class="figma-hero__pill">
+              <span class="figma-hero__pill-dot" aria-hidden="true"></span>
+              FAQ
+            </p>
+            <h1 id="faq-hero-heading" class="faq-figma-hero__title">
+              Frequently Asked <span class="faq-figma-hero__title-accent">Questions</span>
+            </h1>
+            <p class="faq-figma-hero__lead">Everything you need to know about Specialized Medical's cardiac monitoring services.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section faq-accordion" aria-label="FAQ topics">
+        <div class="figma-container faq-accordion__inner">
+<div class="faq-category">
+  <h2 class="faq-category__title">How It Works</h2>
+  <div class="faq-category__list">
+    <div class="faq-item is-open">
+      <button type="button" id="faq-trigger-0-0" class="faq-item__trigger" aria-expanded="true" aria-controls="faq-panel-0-0">
+        <span class="faq-item__q">How does the office workflow work?</span>
+        <svg class="faq-item__chevron is-open" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-0-0" role="region" aria-labelledby="faq-trigger-0-0" class="faq-item__panel">
+        <p>Your medical assistant completes a simple 3-step process: Enroll in web Portal → Hook Up → Disconnect (Under 15 Minutes). The workflow is designed to be straightforward for office staff and easy to repeat across patients. Once the patient is enrolled and leaves the office, Specialized Medical takes over the rest with continuous monitoring, real-time alerts, report generation, and patient support.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-0-1" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-0-1">
+        <span class="faq-item__q">How long does setup take?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-0-1" role="region" aria-labelledby="faq-trigger-0-1" class="faq-item__panel" hidden>
+        <p>In most cases, setup takes under 15 minutes. The process is designed to fit into normal office workflow without adding unnecessary burden to staff.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-0-2" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-0-2">
+        <span class="faq-item__q">What happens after the patient leaves?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-0-2" role="region" aria-labelledby="faq-trigger-0-2" class="faq-item__panel" hidden>
+        <p>Once the patient leaves, Specialized Medical manages the active monitoring process for you. That includes 24/7 live monitoring across all test types, real-time arrhythmia alerts by email, text, or phone call, automatic generation and delivery of final reports, and patient support through our 24/7 multilingual call center.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-0-3" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-0-3">
+        <span class="faq-item__q">How are alerts delivered?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-0-3" role="region" aria-labelledby="faq-trigger-0-3" class="faq-item__panel" hidden>
+        <p>Real-time arrhythmia alerts are delivered by email, text, or phone call, helping practices receive important findings quickly and respond appropriately.</p>
+      </div>
+    </div>
+  </div>
+</div><div class="faq-category">
+  <h2 class="faq-category__title">Reports and Data</h2>
+  <div class="faq-category__list">
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-1-0" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-1-0">
+        <span class="faq-item__q">Are reports EMR-ready?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-1-0" role="region" aria-labelledby="faq-trigger-1-0" class="faq-item__panel" hidden>
+        <p>Yes. Final reports are EMR-ready and can be automatically pushed into your system. Reports are typically delivered within 24–48 hours after test completion, supporting faster physician review and a more efficient office workflow.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-1-1" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-1-1">
+        <span class="faq-item__q">Can physicians electronically review, interpret, date, and sign reports?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-1-1" role="region" aria-labelledby="faq-trigger-1-1" class="faq-item__panel" hidden>
+        <p>Yes. Our workflow supports electronic physician review, interpretation, dating, and signature of final reports.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-1-2" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-1-2">
+        <span class="faq-item__q">How are symptomatic vs. asymptomatic events shown?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-1-2" role="region" aria-labelledby="faq-trigger-1-2" class="faq-item__panel" hidden>
+        <p>Symptoms are entered digitally during the test and automatically appear on the final report above the matching ECG strips, making symptomatic vs. asymptomatic events immediately clear.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-1-3" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-1-3">
+        <span class="faq-item__q">Is data live, or is it uploaded later?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-1-3" role="region" aria-labelledby="faq-trigger-1-3" class="faq-item__panel" hidden>
+        <p>Data is transmitted live to our monitoring center with no manual uploading and no data delays.</p>
+      </div>
+    </div>
+  </div>
+</div><div class="faq-category">
+  <h2 class="faq-category__title">Billing and Reimbursement</h2>
+  <div class="faq-category__list">
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-2-0" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-2-0">
+        <span class="faq-item__q">Are CPT and ICD-10 billing templates provided?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-2-0" role="region" aria-labelledby="faq-trigger-2-0" class="faq-item__panel" hidden>
+        <p>Yes. Customized billing templates with CPT and ICD-10 codes are provided to support efficient billing workflow.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-2-1" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-2-1">
+        <span class="faq-item__q">Do you work with billing staff or third-party billers?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-2-1" role="region" aria-labelledby="faq-trigger-2-1" class="faq-item__panel" hidden>
+        <p>Yes. We work directly with your billing staff or third-party biller to support seamless claims submission.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-2-2" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-2-2">
+        <span class="faq-item__q">What is the reimbursement potential?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-2-2" role="region" aria-labelledby="faq-trigger-2-2" class="faq-item__panel" hidden>
+        <p>Practices routinely receive gross reimbursements exceeding $875.00 for a Holter test followed by a Telemetry test, based on current Medicare rates.</p>
+      </div>
+    </div>
+  </div>
+</div><div class="faq-category">
+  <h2 class="faq-category__title">Supplies and Equipment</h2>
+  <div class="faq-category__list">
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-3-0" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-3-0">
+        <span class="faq-item__q">What monitoring equipment does Specialized Medical use?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-3-0" role="region" aria-labelledby="faq-trigger-3-0" class="faq-item__panel" hidden>
+        <p>Our primary featured monitoring system is <strong>S-Patch</strong>. <strong>Lead-Wire</strong> remains available as a secondary monitoring option where appropriate. For device-specific details, see <a href="services/equipment.html">Monitoring Equipment Options</a>.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-3-1" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-3-1">
+        <span class="faq-item__q">Are all monitor specifications the same?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-3-1" role="region" aria-labelledby="faq-trigger-3-1" class="faq-item__panel" hidden>
+        <p>No. Device-specific details should be shown under the correct system so practices are not given the impression that every monitor shares the same physical specifications. See <a href="services/equipment.html">Monitoring Equipment Options</a> for the current specs.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-3-2" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-3-2">
+        <span class="faq-item__q">Do practices have to buy equipment?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-3-2" role="region" aria-labelledby="faq-trigger-3-2" class="faq-item__panel" hidden>
+        <p>No. Specialized Medical provides the equipment needed to support your program, with no equipment purchase required.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-3-3" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-3-3">
+        <span class="faq-item__q">What supplies are included?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-3-3" role="region" aria-labelledby="faq-trigger-3-3" class="faq-item__panel" hidden>
+        <p>Supplies include electrodes, batteries, razors, alcohol wipes, and other essentials needed for monitoring.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-3-4" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-3-4">
+        <span class="faq-item__q">How many monitors can be provided?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-3-4" role="region" aria-labelledby="faq-trigger-3-4" class="faq-item__panel" hidden>
+        <p>We provide as many monitors as your patient volume requires.</p>
+      </div>
+    </div>
+  </div>
+</div><div class="faq-category">
+  <h2 class="faq-category__title">Patient Experience</h2>
+  <div class="faq-category__list">
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-4-0" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-4-0">
+        <span class="faq-item__q">Is the monitor comfortable?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-4-0" role="region" aria-labelledby="faq-trigger-4-0" class="faq-item__panel" hidden>
+        <p>Yes. <strong>S-Patch</strong> is designed to be lightweight, easy to wear, and simple for patients to manage throughout the test. Comfort and ease of wear are central to our patient-friendly approach. <strong>Lead-Wire</strong> specifications differ—see <a href="services/equipment.html">Monitoring Equipment Options</a> for details.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-4-1" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-4-1">
+        <span class="faq-item__q">Is it water-resistant?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-4-1" role="region" aria-labelledby="faq-trigger-4-1" class="faq-item__panel" hidden>
+        <p>S-Patch is water-resistant (IP55) to better support everyday wear. Specifications can vary by system, so please refer to the device-specific details under the correct equipment option.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-4-2" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-4-2">
+        <span class="faq-item__q">How long does the battery last?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-4-2" role="region" aria-labelledby="faq-trigger-4-2" class="faq-item__panel" hidden>
+        <p>S-Patch runs for a minimum of 10 days per battery, supporting longer monitoring periods with less interruption. Battery performance can vary by system.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-4-3" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-4-3">
+        <span class="faq-item__q">How long can the S-Patch be worn?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-4-3" role="region" aria-labelledby="faq-trigger-4-3" class="faq-item__panel" hidden>
+        <p>S-Patch supports up to 30-day wear duration. Lead-Wire specifications differ and are shown separately under Monitoring Equipment Options.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-4-4" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-4-4">
+        <span class="faq-item__q">How small is the monitor?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-4-4" role="region" aria-labelledby="faq-trigger-4-4" class="faq-item__panel" hidden>
+        <p>S-Patch weighs just 0.6 oz, or less than four sheets of paper, making it compact, lightweight, and easier for patients to wear. Dimensions and weight can vary by system.</p>
+      </div>
+    </div>
+  </div>
+</div><div class="faq-category">
+  <h2 class="faq-category__title">Beta Trial</h2>
+  <div class="faq-category__list">
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-5-0" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-5-0">
+        <span class="faq-item__q">What is the No-Risk Beta Trial?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-5-0" role="region" aria-labelledby="faq-trigger-5-0" class="faq-item__panel" hidden>
+        <p>The No-Risk Beta Trial allows your practice to try Specialized Medical on a few patients and experience the value of our system firsthand, including live-streaming ECG data and a simplified office workflow.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button type="button" id="faq-trigger-5-1" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-5-1">
+        <span class="faq-item__q">What happens if it is not the right fit?</span>
+        <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="faq-panel-5-1" role="region" aria-labelledby="faq-trigger-5-1" class="faq-item__panel" hidden>
+        <p>If Specialized Medical is not the right fit for your practice, we will take everything back — no hassle, no obligation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+      </section>
+
+      <section class="figma-section faq-testimonials" aria-labelledby="testimonials-heading">
+        <div class="figma-container">
+          <div class="faq-testimonials__layout">
+            <div class="faq-testimonials__photo">
+              <img src="images/figma-faq/faq-testimonial-portrait.jpg" alt="Patient during daily activity" width="305" height="426" loading="lazy" decoding="async">
+              <div class="faq-testimonials__dots" aria-hidden="true">
+                <button class="faq-testimonials__dot is-active" type="button" aria-label="Show image 1"></button>
+                <button class="faq-testimonials__dot" type="button" aria-label="Show image 2"></button>
+                <button class="faq-testimonials__dot" type="button" aria-label="Show image 3"></button>
+              </div>
+            </div>
+            <div class="faq-testimonials__right">
+              <h2 id="testimonials-heading" class="faq-testimonials__title">
+                What People Are <span class="faq-testimonials__title-accent">Saying</span>
+              </h2>
+              <div class="faq-testimonials__cards">
+                <blockquote class="faq-testimonial-card">
+                  <p>They immediately transmitted the reports to me and then called me on my cell phone.</p>
+                  <footer>Michael R, M.D.</footer>
+                </blockquote>
+                <blockquote class="faq-testimonial-card">
+                  <p>I did not even realize I was wearing it</p>
+                  <footer>R. Gall</footer>
+                </blockquote>
+                <blockquote class="faq-testimonial-card">
+                  <p>If it was not for Specialized Medical's technology and service I am not sure if this patient would be around today.</p>
+                  <footer>Dr. Catalina R.S.</footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section figma-cta faq-figma-cta" aria-labelledby="faq-cta-heading">
+        <div class="figma-container">
+          <div class="figma-cta__box">
+            <h2 id="faq-cta-heading" class="figma-h2 figma-h2--center figma-h2--narrow">
+              Start Your No-Risk<br>
+              <span class="figma-h2__accent">Beta Trial</span>
+            </h2>
+            <p class="figma-cta__p figma-cta__p--lead">See how Specialized Medical can support your practice with: live-streaming ECG data; simplified office workflow.</p>
+            <p class="figma-cta__p">Evaluate Specialized Medical with no long-term commitment.</p>
+            <div class="figma-cta__actions">
+              <a class="figma-btn figma-btn--solid" href="contact.html">Start Your No-Risk Beta Trial</a>
+              <a class="figma-cta__talk" href="contact.html">Talk to Our Team→</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+﻿    <footer class="site-footer site-footer--figma">
+      <div class="figma-container">
+        <div class="figma-footer__hr" aria-hidden="true"></div>
+        <div class="figma-footer__main">
+          <div class="figma-footer__brand">
+            <a href="./" class="figma-brand figma-brand--footer">
+              <img class="figma-brand__mark" src="images/figma-assets/Group 1261157085.svg" alt="" width="412" height="90" decoding="async">
+            </a>
+            <p class="figma-footer__tagline">Turnkey cardiac monitoring. Live ECG data. S-Patch as the primary featured system.</p>
+          </div>
+          <div class="figma-footer__contact">
+            <nav class="figma-footer__nav" aria-label="Footer">
+              <a href="./">Home</a>
+              <a href="about.html">About Us</a>
+             <a href="services.html">Services</a>
+              <a href="faq.html">FAQs</a>
+              <a href="contact.html">Contact</a>
+              <a href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+            </nav>
+            <div class="figma-footer__line">
+              <span class="figma-footer__icon figma-footer__icon--phone" aria-hidden="true">
+                <img src="icons/vector3527-jgyk.svg" alt="Phone Icon" width="20" height="20" decoding="async">
+              </span>
+              <a class="figma-footer__link" href="tel:+18557732633">
+                <span class="figma-footer__muted">1-855-SPEC-MED</span> 
+                <span class="figma-footer__strong">(1-855-773-2633)</span>
+              </a>
+            </div>
+            <div class="figma-footer__line">
+              <img src="icons/fi62447103527-gtjs.svg" alt="" width="20" height="20" decoding="async">
+              <a href="mailto:info@specialized-med.com">info@specialized-med.com</a>
+            </div>
+            <div class="figma-footer__line">
+              <img src="images/figma-assets/location_icon.png" alt="" width="20" height="20" decoding="async">
+              <p class="figma-footer__address">Specialized Medical, LLC 34145 Pacific Coast Highway, #700 Dana Point, CA 92629</p>
+            </div>
+          </div>
+        </div>
+        <div class="figma-footer__triple">
+          <span>Mobile Cardiac Telemetry</span>
+          <span>Holter Monitoring</span>
+          <span>Event Monitoring</span>
+        </div>
+        <div class="figma-footer__hr" aria-hidden="true"></div>
+        <div class="figma-footer__bottom">
+          <p class="figma-footer__copy">© <span id="footer-year">2026</span> Specialized Medical, LLC. All rights reserved.</p>
+          <div class="figma-footer__social">
+            <img src="images/figma-assets/hipaa-badge.png" alt="HIPAA" width="69" height="20" class="figma-footer__hipaa" loading="lazy" decoding="async">
+            <a href="https://www.facebook.com/specializedmedical" class="figma-footer__fb" aria-label="Facebook">
+              <img src="images/facebook-like.jpg" alt="Like us on Facebook" width="90" height="26" loading="lazy" decoding="async">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+  </div>
+  <script src="js/main.js?v=20260430" defer></script>
+</body>
+</html>

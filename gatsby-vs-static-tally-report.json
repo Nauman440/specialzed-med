@@ -1,0 +1,50 @@
+[
+  {
+    "route": "/",
+    "gSnips": 49,
+    "missingCount": 0,
+    "missing": []
+  },
+  {
+    "route": "/about/",
+    "gSnips": 30,
+    "missingCount": 0,
+    "missing": []
+  },
+  {
+    "route": "/services/",
+    "gSnips": 57,
+    "missingCount": 0,
+    "missing": []
+  },
+  {
+    "route": "/services/equipment/",
+    "gSnips": 38,
+    "missingCount": 0,
+    "missing": []
+  },
+  {
+    "route": "/faq/",
+    "gSnips": 11,
+    "missingCount": 0,
+    "missing": []
+  },
+  {
+    "route": "/clinical-stories/",
+    "gSnips": 15,
+    "missingCount": 0,
+    "missing": []
+  },
+  {
+    "route": "/contact/",
+    "gSnips": 18,
+    "missingCount": 0,
+    "missing": []
+  },
+  {
+    "route": "/thanks/",
+    "gSnips": 6,
+    "missingCount": 0,
+    "missing": []
+  }
+]

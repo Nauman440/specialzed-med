@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+    <script>
+    (function (w, d) {
+      function siteRootPathname() {
+        var segs = w.location.pathname.split("/").filter(Boolean)
+        // Some hosting panels / preview URLs can include a filesystem-like prefix
+        // such as /home/<user>/public_html/<site>/... . If present, strip it so
+        // <base href> always points at the public site path.
+        var ph = segs.lastIndexOf("public_html")
+        if (ph !== -1) segs = segs.slice(ph + 1)
+        var leaf = { about: 1, services: 1, faq: 1, contact: 1, "clinical-stories": 1, thanks: 1, "404": 1 }
+        while (segs.length) {
+          var last = segs[segs.length - 1]
+          if (last === "equipment" && segs.length >= 2 && segs[segs.length - 2] === "services") {
+            segs.length -= 2
+            break
+          }
+          if (/\.html$/i.test(last)) {
+            segs.pop()
+            continue
+          }
+          if (leaf[last]) {
+            segs.pop()
+            continue
+          }
+          break
+        }
+        return "/" + (segs.join("/") + (segs.length ? "/" : ""))
+      }
+      var p = siteRootPathname()
+      var h = w.location.origin + (p === "/" ? "/" : p)
+      var b = d.createElement("base")
+      b.href = h
+      var m = d.head.querySelector("meta[charset]")
+      if (m && typeof m.insertAdjacentElement === "function") {
+        m.insertAdjacentElement("afterend", b)
+      } else if (m && m.nextSibling) {
+        d.head.insertBefore(b, m.nextSibling)
+      } else {
+        d.head.insertBefore(b, d.head.firstChild)
+      }
+    })(window, document)
+  </script>
+  <!-- sm-site-base -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us | Specialized Medical</title>
+  <meta name="description"
+    content="Who we are, why practices choose Specialized Medical, and how our S-Patch monitoring model supports modern physician practices.">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body>
+  <div class="site-root">
+﻿    <header class="site-header site-header--figma">
+      <div class="figma-container figma-header__inner site-header__inner">
+        <a href="./" class="figma-brand" aria-label="Specialized Medical home">
+          <img class="figma-brand__mark" src="images/figma-assets/Group 1261157085.svg" alt="" width="236" height="52" decoding="async">
+        </a>
+        <button type="button" class="nav-toggle nav-toggle--figma" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <button type="button" class="nav-overlay" aria-label="Close menu" hidden></button>
+        <nav id="primary-nav" class="figma-nav" aria-label="Primary">
+          <a class="figma-nav__link" href="./">Home</a>
+          <a class="figma-nav__link is-active" href="about/">About Us</a>
+         <a class="figma-nav__link" href="services.html">Services</a>
+          <a class="figma-nav__link" href="faq.html">FAQs</a>
+          <a class="figma-nav__link" href="contact.html">Contact</a>
+          <div class="figma-nav__mobile">
+            <a class="figma-nav__phone" href="tel:+18557732633">Call: 1-855-773-2633</a>
+            <div class="figma-nav__actions">
+              <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+              <a class="figma-btn figma-btn--solid" href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+            </div>
+          </div>
+        </nav>
+        <div class="figma-header__cta">
+          <a class="figma-phone" href="tel:+18557732633">
+            <img class="figma-phone__icon" src="icons/vector3527-jgyk.svg" alt="" width="14" height="14" decoding="async">
+            <span class="figma-phone__num">1-855-773-2633</span>
+          </a>
+          <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+          <a class="figma-header__portal" href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+        </div>
+      </div>
+    </header>
+
+
+    <main class="about-page about-page--figma" data-design="about-393-519">
+      <section class="about-figma-hero" aria-labelledby="about-hero-heading">
+        <div class="about-figma-hero__plate">
+          <div class="about-figma-hero__bg" role="presentation"></div>
+          <div class="about-figma-hero__gradient" aria-hidden="true"></div>
+          <div class="figma-container about-figma-hero__inner">
+            <p class="figma-hero__pill">
+              <span class="figma-hero__pill-dot" aria-hidden="true"></span>
+              About Us
+            </p>
+            <h1 id="about-hero-heading" class="about-figma-hero__title">
+              A Better Partner for <span class="about-figma-hero__title-accent">Cardiac Monitoring</span>
+            </h1>
+            <p class="about-figma-hero__lead">Specialized Medical provides turnkey cardiac monitoring support designed
+              for physician practices that need faster visibility, simplified workflow, and dependable reporting.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section about-figma-who" aria-labelledby="who-heading">
+        <div class="figma-container">
+          <div class="about-figma-who__grid">
+            <div class="about-figma-who__media">
+              <img src="images/figma-about/who-team.jpg" alt="Specialized Medical clinical team" width="630"
+                height="528" loading="lazy" decoding="async">
+            </div>
+            <div class="about-figma-who__story">
+              <h2 id="who-heading" class="about-figma-who__title">
+                <span class="about-figma-who__title-w">Who We</span><span class="about-figma-who__title-a"> Are</span>
+              </h2>
+              <p class="about-figma-who__p">Specialized Medical is redefining what cardiac monitoring should look like
+                for today’s medical practices. We partner with physicians, cardiology groups, and cardiovascular
+                programs to provide a smarter, more complete monitoring model built around live-streaming ECG data,
+                operational simplicity, and real clinical support.</p>
+              <p class="about-figma-who__p">Our primary featured monitor is the S-Patch Monitoring
+                  System. We also maintain Lead-Wire as a secondary monitoring option where
+                appropriate. This keeps the lineup clear while supporting a range of practice needs.</p>
+              <p class="about-figma-who__p">Specialized Medical also removes much of the workload that typically falls
+                on the practice. From simplified setup and 24/7 monitoring to real-time alerts, EMR-ready reporting,
+                physician review workflow, billing support, and zero-cost equipment, our model is built to support the
+                office from start to finish.</p>
+              <p class="about-figma-who__p">We are not just providing a monitor. We are providing a better way for
+                practices to monitor patients, manage workflow, and gain confidence in the data they receive.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section about-figma-why about-figma-why--cards" aria-labelledby="why-heading"
+        data-design="figma-486-724">
+        <div class="figma-container">
+          <h2 id="why-heading" class="about-figma-why__heading">
+            <span class="about-figma-why__heading-w">Why Practices</span><span class="about-figma-why__heading-a">
+              Choose Us</span>
+          </h2>
+          <ul class="about-figma-why__bullets">
+            <li>Physician-ready reports and secure portal workflow</li>
+            <li>24/7 monitoring and real-time arrhythmia alerts</li>
+            <li>Zero-cost equipment and practice-ready onboarding</li>
+            <li>24/7 multilingual patient support</li>
+          </ul>
+          <div class="about-figma-why__grid">
+            <article class="about-figma-why-card">
+              <div class="about-figma-why-card__icon" aria-hidden="true">
+                <img src="images/figma-about/Vector.png" alt="" width="20" height="20" loading="lazy" decoding="async">
+              </div>
+              <h3 class="about-figma-why-card__title">Complete Turn-Key Cardiac Monitoring</h3>
+              <p class="about-figma-why-card__body">Physician practices choose Specialized Medical because we provide
+                more than a monitor — we deliver complete turn-key cardiac monitoring built around real-time data,
+                operational support, and a workflow designed for both the office and the patient.</p>
+            </article>
+            <article class="about-figma-why-card">
+              <div class="about-figma-why-card__icon" aria-hidden="true">
+                <img src="images/figma-about/Group.png" alt="" width="20" height="20" loading="lazy" decoding="async">
+              </div>
+              <h3 class="about-figma-why-card__title"><span class="about-figma-why-card__title-line">Practice
+                  Integration</span>
+                <span class="about-figma-why-card__title-line">Made Easy</span>
+              </h3>
+              <p class="about-figma-why-card__body">Final reports are EMR-ready and can be pushed into your system. Review, interpret, date,
+                and sign reports through our secure provider portal. Billing templates (CPT and ICD-10) and operational
+                support help your team stay efficient.</p>
+            </article>
+            <article class="about-figma-why-card">
+              <div class="about-figma-why-card__icon" aria-hidden="true">
+                <img src="images/figma-about/Group 1261157411.png" alt="" width="20" height="20" loading="lazy"
+                  decoding="async">
+              </div>
+              <h3 class="about-figma-why-card__title">Accuracy. Speed. Simplicity. Profitability.</h3>
+              <p class="about-figma-why-card__body">Because our devices transmit in real time, there is no delay in
+                data, no manual uploading, and no gaps in rhythm interpretation. Our reporting is faster, more accurate,
+                and designed to support efficient workflow for your practice.</p>
+            </article>
+            <article class="about-figma-why-card about-figma-why-card--large-icon">
+              <div class="about-figma-why-card__icon" aria-hidden="true">
+                <img src="images/figma-about/image (1) 1.png" alt="" width="20" height="24" loading="lazy"
+                  decoding="async">
+              </div>
+              <h3 class="about-figma-why-card__title">Reduce Friction at Every Step</h3>
+              <p class="about-figma-why-card__body">Our model is designed to reduce friction at every step. Practices
+                can support Holter, Extended Holter, Event Monitoring, and Telemetry (MCT), access live-streaming ECG
+                data, receive real-time arrhythmia alerts, and rely on final reports that are clear, actionable, and
+                ready for physician review. This means less delay, less manual work, and greater confidence in the
+                monitoring process.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section about-figma-compact" aria-labelledby="compact-heading">
+        <div class="figma-container about-figma-compact__grid">
+          <div class="about-figma-compact__media">
+            <img src="images/figma-about/compact-device.jpg" alt="Compact S-Patch cardiac monitor with scale reference"
+              width="630" height="604" loading="lazy" decoding="async">
+          </div>
+          <div class="about-figma-compact__copy">
+            <h2 id="compact-heading" class="about-figma-compact__title">
+              <span class="about-figma-compact__title-line">Compact</span> <span
+                class="about-figma-compact__title-accent">Design</span>
+            </h2>
+            <p class="about-figma-compact__lead">The future of ECG monitoring is small, smart, and simple. Our S-Patch
+              device features an incredibly compact design and a lightweight form factor that ensures maximum patient
+              compliance.</p>
+            <ul class="about-figma-compact__list">
+              <li>S-Patch weighs 0.6 oz—less than four sheets of paper</li>
+              <li>Simple, minimal form factor (S-Patch)</li>
+              <li>S-Patch runs at least 10 days per battery, supporting longer monitoring periods with less interruption</li>
+              <li>S-Patch is water-resistant (IP55) for everyday wear</li>
+              <li>Industry-leading ECG clarity on S-Patch</li>
+              <li>Precise P-wave definition</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section figma-cta about-figma-cta" aria-labelledby="about-cta-heading">
+        <div class="figma-container">
+          <div class="figma-cta__box">
+            <h2 id="about-cta-heading" class="figma-h2 figma-h2--center figma-h2--narrow">
+              Start Your No-Risk<br>
+              <span class="figma-h2__accent">Beta Trial</span>
+            </h2>
+            <p class="figma-cta__p figma-cta__p--about-italic">See how Specialized Medical can support your practice
+              with: live-streaming ECG data; simplified office workflow.</p>
+            <p class="figma-cta__p figma-cta__p--about-italic">Evaluate Specialized Medical with no long-term commitment.</p>
+            <div class="figma-cta__actions about-figma-cta__actions">
+              <a class="figma-btn figma-btn--solid" href="contact.html">Start Your No-Risk Beta Trial</a>
+              <a class="figma-cta__talk" href="contact.html">Talk to our team →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+﻿    <footer class="site-footer site-footer--figma">
+      <div class="figma-container">
+        <div class="figma-footer__hr" aria-hidden="true"></div>
+        <div class="figma-footer__main">
+          <div class="figma-footer__brand">
+            <a href="./" class="figma-brand figma-brand--footer">
+              <img class="figma-brand__mark" src="images/figma-assets/Group 1261157085.svg" alt="" width="412" height="90" decoding="async">
+            </a>
+            <p class="figma-footer__tagline">Turnkey cardiac monitoring. Live ECG data. S-Patch as the primary featured system.</p>
+          </div>
+          <div class="figma-footer__contact">
+            <nav class="figma-footer__nav" aria-label="Footer">
+              <a href="./">Home</a>
+              <a href="/about.html">About Us</a>
+             <a href="services.html">Services</a>
+              <a href="faq.html">FAQs</a>
+              <a href="contact.html">Contact</a>
+              <a href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+            </nav>
+            <div class="figma-footer__line">
+              <span class="figma-footer__icon figma-footer__icon--phone" aria-hidden="true">
+                <img src="icons/vector3527-jgyk.svg" alt="Phone Icon" width="20" height="20" decoding="async">
+              </span>
+              <a class="figma-footer__link" href="tel:+18557732633">
+                <span class="figma-footer__muted">1-855-SPEC-MED</span> 
+                <span class="figma-footer__strong">(1-855-773-2633)</span>
+              </a>
+            </div>
+            <div class="figma-footer__line">
+              <img src="icons/fi62447103527-gtjs.svg" alt="" width="20" height="20" decoding="async">
+              <a href="mailto:info@specialized-med.com">info@specialized-med.com</a>
+            </div>
+            <div class="figma-footer__line">
+              <img src="images/figma-assets/location_icon.png" alt="" width="20" height="20" decoding="async">
+              <p class="figma-footer__address">Specialized Medical, LLC 34145 Pacific Coast Highway, #700 Dana Point, CA 92629</p>
+            </div>
+          </div>
+        </div>
+        <div class="figma-footer__triple">
+          <span>Mobile Cardiac Telemetry</span>
+          <span>Holter Monitoring</span>
+          <span>Event Monitoring</span>
+        </div>
+        <div class="figma-footer__hr" aria-hidden="true"></div>
+        <div class="figma-footer__bottom">
+          <p class="figma-footer__copy">© <span id="footer-year">2026</span> Specialized Medical, LLC. All rights reserved.</p>
+          <div class="figma-footer__social">
+            <img src="images/figma-assets/hipaa-badge.png" alt="HIPAA" width="69" height="20" class="figma-footer__hipaa" loading="lazy" decoding="async">
+            <a href="https://www.facebook.com/specializedmedical" class="figma-footer__fb" aria-label="Facebook">
+              <img src="images/facebook-like.jpg" alt="Like us on Facebook" width="90" height="26" loading="lazy" decoding="async">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+  </div>
+  <script src="js/main.js?v=20260430" defer></script>
+</body>
+
+</html>

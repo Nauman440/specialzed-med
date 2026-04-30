@@ -1,0 +1,10 @@
+{
+  "name": "specialized-medical-static-site",
+  "private": true,
+  "description": "Build shim for Netlify when base=static-site.",
+  "scripts": {
+    "dev": "node scripts/local-dev-server.mjs",
+    "build": "node scripts/prepare-netlify-publish-dir.mjs"
+  }
+}
+

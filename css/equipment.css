@@ -1,0 +1,433 @@
+/* -------------------------------------------------------------------------- */
+/* Monitoring equipment subpage — Figma node 21:1200                          */
+/* -------------------------------------------------------------------------- */
+
+.equipment-page--figma {
+  overflow-x: hidden;
+  background: #fff;
+}
+
+/* ----- Hero ----- */
+.eq-hero {
+  padding: clamp(1.25rem, 3vw, 2rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+  background: #fff;
+}
+
+.eq-hero .figma-container {
+  margin-left: 0;
+  margin-right: 0;
+  padding-inline: var(--figma-inline);
+}
+
+.eq-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.15rem 0.85rem 0.15rem 0.65rem;
+  margin: 0 0 clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(35, 31, 30, 0.7);
+  border-radius: 43px;
+  font-size: 0.875rem;
+  color: rgba(35, 31, 30, 0.7);
+  text-decoration: none;
+}
+
+.eq-hero__back:hover {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.eq-hero__back-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-red);
+  flex-shrink: 0;
+}
+
+.eq-hero__title {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-sans);
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #231f1e;
+  text-transform: none;
+}
+
+.eq-hero__title-accent {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-red);
+}
+
+.eq-hero__line {
+  height: 0;
+  border: none;
+  border-top: 2px solid var(--color-red);
+  margin: 0;
+  width: 100%;
+  max-width: 1280px;
+}
+
+/* ----- Main panels ----- */
+.eq-section {
+  padding: 0 0 clamp(2rem, 5vw, 3rem);
+}
+
+.eq-compare {
+  padding: clamp(1.25rem, 3vw, 2rem) 0 clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.eq-compare__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #231f1e;
+}
+
+.eq-compare__sub {
+  margin: 0 0 1.25rem;
+  max-width: 70ch;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(35, 31, 30, 0.74);
+}
+
+.eq-compare__table {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.eq-compare__row {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.eq-compare__row--head {
+  background: #fcf4f5;
+}
+
+.eq-compare__cell {
+  padding: 14px 16px;
+  border-top: 1px solid rgba(35, 31, 30, 0.08);
+  font-size: 0.975rem;
+  line-height: 1.35;
+  color: rgba(35, 31, 30, 0.86);
+}
+
+.eq-compare__row--head .eq-compare__cell {
+  border-top: none;
+  font-weight: 600;
+  color: #231f1e;
+}
+
+.eq-compare__cell--feature {
+  background: #fafafa;
+  font-weight: 600;
+  color: #231f1e;
+}
+
+.eq-compare__row--head .eq-compare__cell--feature {
+  background: transparent;
+}
+
+@media (max-width: 820px) {
+  .eq-compare__row {
+    grid-template-columns: minmax(0, 150px) minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .eq-compare__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .eq-compare__row--head {
+    display: none;
+  }
+
+  .eq-compare__cell {
+    border-top: none;
+    border-bottom: 1px solid rgba(35, 31, 30, 0.08);
+  }
+
+  .eq-compare__cell--feature {
+    border-bottom: 1px solid rgba(35, 31, 30, 0.12);
+  }
+}
+
+.eq-panel {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.eq-panel__split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 522px);
+  gap: clamp(1.25rem, 4vw, 2rem);
+  align-items: start;
+}
+
+/* Lead-Wire: image left, copy right (Figma) */
+.eq-panel__split--lead {
+  grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
+  align-items: center;
+}
+
+.eq-panel__split--lead > .eq-panel__media {
+  order: 0;
+}
+
+.eq-panel__split--lead > .eq-panel__copy {
+  order: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.eq-panel__split--reverse {
+  direction: rtl;
+}
+
+.eq-panel__split--reverse > * {
+  direction: ltr;
+}
+
+.eq-panel__copy {
+  min-width: 0;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.eq-panel__h2 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #231f1e;
+}
+
+.eq-panel__h2-accent {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-red);
+}
+
+.eq-panel__tag {
+  margin: 0 0 1rem;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #231f1e;
+}
+
+.eq-panel__text {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(35, 31, 30, 0.7);
+}
+
+.eq-panel__text:last-child {
+  margin-bottom: 0;
+}
+
+.eq-panel__media {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(35, 31, 30, 0.1);
+  background: #f4f4f4;
+}
+
+.eq-panel__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* Lead-Wire: second section — specs card only (separate from intro panel) */
+.eq-section--lead-spec {
+  padding-top: 0;
+}
+
+/* Red rule between S-Patch intro panel and spec / feature cards */
+.eq-divider--red {
+  height: 0;
+  border: none;
+  border-top: 2px solid var(--color-red);
+  margin: clamp(2rem, 5vw, 3rem) 0 clamp(1.25rem, 3vw, 1.75rem);
+  max-width: 1280px;
+}
+
+/* ----- Spec + feature cards (S-Patch) ----- */
+.eq-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.25rem);
+  align-items: stretch;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.eq-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  min-height: 120px;
+  box-sizing: border-box;
+}
+
+.eq-card--spec {
+  background: #fcf4f5;
+}
+
+.eq-card--feat {
+  background: #fafafa;
+}
+
+.eq-card__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #231f1e;
+  text-align: left;
+}
+
+.eq-card--lead .eq-card__title {
+  text-align: center;
+}
+
+.eq-card__rule {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  margin: 0 0 1rem;
+}
+
+.eq-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.eq-list li {
+  position: relative;
+  padding-left: 1.35rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(35, 31, 30, 0.7);
+}
+
+.eq-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-red);
+}
+
+@media (max-width: 900px) {
+  .eq-list li::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .eq-list li::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.eq-card--lead {
+  background: #fcf4f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  max-width: 1064px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.eq-card--lead .eq-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2rem;
+  max-width: none;
+  margin: 0;
+}
+
+/* Cards sit below intro panels */
+.eq-section .eq-panel + .eq-divider--red + .eq-cards,
+.eq-section .eq-panel + .eq-cards {
+  margin-top: 0;
+}
+
+/* CTA — match About / Figma pink well */
+.equipment-page--figma .figma-cta__box {
+  background: #fcf4f5;
+}
+
+.equipment-page--figma .figma-cta__p--about-italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+@media (max-width: 900px) {
+  .eq-panel__split,
+  .eq-panel__split--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  .eq-panel__split--lead {
+    grid-template-columns: 1fr;
+  }
+
+  .eq-panel__split--lead > .eq-panel__media {
+    order: -1;
+  }
+
+  .eq-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .eq-card--lead .eq-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .eq-panel__copy {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

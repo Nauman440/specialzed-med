@@ -1,0 +1,32 @@
+; # Loop-safe rules for static site in root OR subfolder.
+; Options -Indexes
+; DirectoryIndex index.html
+
+; RewriteEngine On
+
+; # Canonicalize only direct browser requests for *.html (prevents rewrite loops).
+; RewriteCond %{THE_REQUEST} \s/+(.*/)?about\.html[\s?] [NC]
+; RewriteRule ^about\.html$ about/ [R=301,L]
+; RewriteCond %{THE_REQUEST} \s/+(.*/)?services\.html[\s?] [NC]
+; RewriteRule ^services\.html$ services/ [R=301,L]
+; RewriteCond %{THE_REQUEST} \s/+(.*/)?faq\.html[\s?] [NC]
+; RewriteRule ^faq\.html$ faq/ [R=301,L]
+; RewriteCond %{THE_REQUEST} \s/+(.*/)?contact\.html[\s?] [NC]
+; RewriteRule ^contact\.html$ contact/ [R=301,L]
+; RewriteCond %{THE_REQUEST} \s/+(.*/)?clinical-stories\.html[\s?] [NC]
+; RewriteRule ^clinical-stories\.html$ clinical-stories/ [R=301,L]
+; RewriteCond %{THE_REQUEST} \s/+(.*/)?thanks\.html[\s?] [NC]
+; RewriteRule ^thanks\.html$ thanks/ [R=301,L]
+; RewriteCond %{THE_REQUEST} \s/+(.*/)?services/equipment\.html[\s?] [NC]
+; RewriteRule ^services/equipment\.html$ services/equipment/ [R=301,L]
+
+; # Pretty URLs -> flat html files.
+; RewriteCond %{REQUEST_FILENAME} !-f
+; RewriteCond %{REQUEST_FILENAME} !-d
+; RewriteRule ^about/?$ about.html [L]
+; RewriteRule ^services/?$ services.html [L]
+; RewriteRule ^services/equipment/?$ services/equipment.html [L]
+; RewriteRule ^faq/?$ faq.html [L]
+; RewriteRule ^contact/?$ contact.html [L]
+; RewriteRule ^clinical-stories/?$ clinical-stories.html [L]
+; RewriteRule ^thanks/?$ thanks.html [L]

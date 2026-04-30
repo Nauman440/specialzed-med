@@ -1,0 +1,33 @@
+﻿    <header class="site-header site-header--figma">
+      <div class="figma-container figma-header__inner site-header__inner">
+        <a href="{{BASE_HOME}}" class="figma-brand" aria-label="Specialized Medical home">
+          <img class="figma-brand__mark" src="{{BASE}}images/figma-assets/Group 1261157085.svg" alt="" width="236" height="52" decoding="async">
+        </a>
+        <button type="button" class="nav-toggle nav-toggle--figma" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <button type="button" class="nav-overlay" aria-label="Close menu" hidden></button>
+        <nav id="primary-nav" class="figma-nav" aria-label="Primary">
+          <a class="figma-nav__link{{ACTIVE_HOME}}" href="{{BASE_HOME}}">Home</a>
+          <a class="figma-nav__link{{ACTIVE_ABOUT}}" href="{{BASE}}about/">About Us</a>
+          <a class="figma-nav__link{{ACTIVE_SERVICES}}" href="{{BASE}}services/">Services</a>
+          <a class="figma-nav__link{{ACTIVE_FAQ}}" href="{{BASE}}faq/">FAQs</a>
+          <a class="figma-nav__link{{ACTIVE_CONTACT}}" href="{{BASE}}contact/">Contact</a>
+          <div class="figma-nav__mobile">
+            <a class="figma-nav__phone" href="tel:+18557732633">Call: 1-855-773-2633</a>
+            <div class="figma-nav__actions">
+              <a class="figma-btn figma-btn--outline-dark" href="{{BASE}}contact/#contact-form">Request a Demo</a>
+              <a class="figma-btn figma-btn--solid" href="{{PORTAL_URL}}" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+            </div>
+          </div>
+        </nav>
+        <div class="figma-header__cta">
+          <a class="figma-phone" href="tel:+18557732633">
+            <img class="figma-phone__icon" src="{{BASE}}icons/vector3527-jgyk.svg" alt="" width="14" height="14" decoding="async">
+            <span class="figma-phone__num">1-855-773-2633</span>
+          </a>
+          <a class="figma-btn figma-btn--outline-dark" href="{{BASE}}contact/">Request a Demo</a>
+          <a class="figma-header__portal" href="{{PORTAL_URL}}" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+        </div>
+      </div>
+    </header>

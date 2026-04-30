@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <script>
+    (function (w, d) {
+      function siteRootPathname() {
+        var segs = w.location.pathname.split("/").filter(Boolean)
+        // Some hosting panels / preview URLs can include a filesystem-like prefix
+        // such as /home/<user>/public_html/<site>/... . If present, strip it so
+        // <base href> always points at the public site path.
+        var ph = segs.lastIndexOf("public_html")
+        if (ph !== -1) segs = segs.slice(ph + 1)
+        var leaf = { about: 1, services: 1, faq: 1, contact: 1, "clinical-stories": 1, thanks: 1, "404": 1 }
+        while (segs.length) {
+          var last = segs[segs.length - 1]
+          if (last === "equipment" && segs.length >= 2 && segs[segs.length - 2] === "services") {
+            segs.length -= 2
+            break
+          }
+          if (/\.html$/i.test(last)) {
+            segs.pop()
+            continue
+          }
+          if (leaf[last]) {
+            segs.pop()
+            continue
+          }
+          break
+        }
+        return "/" + (segs.join("/") + (segs.length ? "/" : ""))
+      }
+      var p = siteRootPathname()
+      var h = w.location.origin + (p === "/" ? "/" : p)
+      var b = d.createElement("base")
+      b.href = h
+      var m = d.head.querySelector("meta[charset]")
+      if (m && typeof m.insertAdjacentElement === "function") {
+        m.insertAdjacentElement("afterend", b)
+      } else if (m && m.nextSibling) {
+        d.head.insertBefore(b, m.nextSibling)
+      } else {
+        d.head.insertBefore(b, d.head.firstChild)
+      }
+    })(window, document)
+  </script>
+  <!-- sm-site-base -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Stories | Specialized Medical</title>
+  <meta name="description" content="Clinical stories and proof points focused on physician workflow, reporting, and patient experience.">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/services.css">
+</head>
+<body>
+  <div class="site-root">
+﻿    <header class="site-header site-header--figma">
+      <div class="figma-container figma-header__inner site-header__inner">
+        <a href="./" class="figma-brand" aria-label="Specialized Medical home">
+          <img class="figma-brand__mark" src="images/figma-assets/Group 1261157085.svg" alt="" width="236" height="52" decoding="async">
+        </a>
+        <button type="button" class="nav-toggle nav-toggle--figma" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <button type="button" class="nav-overlay" aria-label="Close menu" hidden></button>
+        <nav id="primary-nav" class="figma-nav" aria-label="Primary">
+          <a class="figma-nav__link" href="./">Home</a>
+          <a class="figma-nav__link" href="about.html">About Us</a>
+          <a class="figma-nav__link is-active" href="services.html">Services</a>
+          <a class="figma-nav__link" href="faq.html">FAQs</a>
+          <a class="figma-nav__link" href="contact.html">Contact</a>
+          <div class="figma-nav__mobile">
+            <a class="figma-nav__phone" href="tel:+18557732633">Call: 1-855-773-2633</a>
+            <div class="figma-nav__actions">
+              <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+              <a class="figma-btn figma-btn--solid" href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+            </div>
+          </div>
+        </nav>
+        <div class="figma-header__cta">
+          <a class="figma-phone" href="tel:+18557732633">
+            <img class="figma-phone__icon" src="icons/vector3527-jgyk.svg" alt="" width="14" height="14" decoding="async">
+            <span class="figma-phone__num">1-855-773-2633</span>
+          </a>
+          <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+          <a class="figma-header__portal" href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+        </div>
+      </div>
+    </header>
+
+
+
+
+
+
+
+
+
+<main class="services-page services-page--figma" data-page="clinical-stories">
+      <section class="svc-hero" aria-labelledby="clinical-stories-heading">
+        <div class="svc-hero__plate">
+          <div class="svc-hero__bg" role="presentation"></div>
+          <div class="svc-hero__gradient" aria-hidden="true"></div>
+          <div class="figma-container svc-hero__inner">
+            <p class="figma-hero__pill">
+              <span class="figma-hero__pill-dot" aria-hidden="true"></span>
+              Clinical Proof
+            </p>
+            <h1 id="clinical-stories-heading" class="svc-hero__title">
+              Clinical <span class="svc-hero__title-accent">Stories</span>
+            </h1>
+            <p class="svc-hero__lead">
+              Short, physician-facing proof points focused on workflow, reporting, and patient experience.
+            </p>
+            <div class="svc-hero__actions">
+              <a class="figma-btn figma-btn--outline-dark" href="services.html">Back to Services</a>
+              <a class="figma-btn figma-btn--solid" href="contact.html">Request a Demo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section svc-cases" aria-label="Clinical stories list">
+        <div class="figma-container">
+          <div class="svc-cases__list svc-cases__list--more">
+            <article id="cp-1" class="svc-case-card">
+              <div>
+                <div class="svc-case-card__media">
+                  <img src="images/figma-services/case-01.jpg" alt="" loading="lazy" decoding="async">
+                </div>
+                <p class="svc-case-card__caption">Patient-friendly design, small monitor size, comfort, and ease of wear.</p>
+              </div>
+              <div>
+                <span class="svc-case-card__tag">Case Study 01 (S-Patch System)</span>
+                <h2 class="svc-case-card__title">Easy for Patients to Wear</h2>
+                <p class="svc-case-card__body">"I wore the S-Patch Monitor from Specialized Medical all week. It was easy and hassle free. Was not a problem at all. The monitor I wore was very small. I didn't even realize I was wearing it. The technology is incredible. I'm looking forward to seeing the results, since I'm pretty sure I have occasional Afib. This monitor system is SO MUCH better than the old way!"</p>
+                <div class="svc-case-card__stars" aria-hidden="true"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"></div>
+                <p class="svc-case-card__by">- R. Gall</p>
+              </div>
+            </article>
+            <article id="cp-2" class="svc-case-card">
+              <div>
+                <div class="svc-case-card__media">
+                  <img src="images/figma-services/case-02.jpg" alt="" loading="lazy" decoding="async">
+                </div>
+                <p class="svc-case-card__caption">Detected, reported, and escalated quickly</p>
+              </div>
+              <div>
+                <span class="svc-case-card__tag">Case Study 02 (S-Patch)</span>
+                <h2 class="svc-case-card__title">The ER Missed It</h2>
+                <p class="svc-case-card__body">"I am so grateful for Specialized Medical and the care I received during my heart monitoring. I wore the monitor for a 15-day test, and on day 12 it detected a serious rhythm issue that needed immediate attention. I truly believe that this monitoring made a life-saving difference for me. What stood out to me just as much as the technology was the people behind it. The customer service team at Specialized Medical was outstanding from beginning to end. They were kind, responsive, patient, and made me feel supported every step of the way.
+
+The monitor itself was also much easier than I expected. It was simple to use, comfortable to wear, and easy to manage throughout the testing period. That gave me peace of mind and made it possible for me to go about my normal routine while still being monitored. I’m incredibly thankful that this issue was found when it was. Specialized Medical gave me not only answers, but confidence that someone was looking out for me”.</p>
+                <div class="svc-case-card__stars" aria-hidden="true"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"></div>
+                <p class="svc-case-card__by">— Marguerite C.</p>
+              </div>
+            </article>
+            <article id="cp-3" class="svc-case-card">
+              <div>
+                <div class="svc-case-card__media">
+                  <img src="images/figma-services/case-03.jpg" alt="" loading="lazy" decoding="async">
+                </div>
+                <p class="svc-case-card__caption">Detected, reported, and escalated quickly</p>
+              </div>
+              <div>
+                <span class="svc-case-card__tag">Case Study 03 (S-Patch)</span>
+                <h2 class="svc-case-card__title">The ER Missed It</h2>
+                <p class="svc-case-card__body">"I am so thankful for Specialized Medical. I wore the monitor from March 4 to March 6, 2026, and it found a serious heart problem that I did not know was happening. I truly believe that test may have saved my life. What meant the most to me was how kind and helpful everyone was. The customer service was outstanding. Any time I had a question, someone was there to help me and explain things in a way I could understand. That made a scary situation feel a little easier. The monitor itself was also very easy to use. It was simple, comfortable to wear, and did not make my day harder. I was able to go about my normal routine while feeling better knowing my heart was being watched. I will always be grateful to Specialized Medical for finding something so important and for treating me with so much care and respect. I would recommend them to anyone who needs heart monitoring."</p>
+                <div class="svc-case-card__stars" aria-hidden="true"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"></div>
+                <p class="svc-case-card__by">— Rhonda B.</p>
+              </div>
+            </article>
+            <article id="cp-4" class="svc-case-card">
+              <div>
+                <div class="svc-case-card__media">
+                  <img src="images/figma-services/case-04.jpg" alt="" loading="lazy" decoding="async">
+                </div>
+                <p class="svc-case-card__caption">Detected, reported, and escalated quickly</p>
+              </div>
+              <div>
+                <span class="svc-case-card__tag">Case Study 04 (Lead Wire System)</span>
+                <h2 class="svc-case-card__title">The ER Missed It</h2>
+                <p class="svc-case-card__body">"I am a Family Medicine doctor located in Central New York and applied Specialized Medical's Cardiac Holter Monitor to a 60-year-old male patient complaining of cardiac-related issues. The patient wore the Specialized Medical Cardiac Holter Monitor for 24 hours. During this test the Cardiac Monitor picked up 3 Paroxysmal AV blocks between 2:18 p.m. and 2:42 p.m. When Specialized Medical saw these results they immediately transmitted the reports to me and then called me on my cell phone. That day the doctor discussed the results with the patient and then referred him to a Cardiologist. We later found out the patient had been walking up a hill and after about 5 minutes into his walk he experienced the aforementioned cardiac arrhythmia. I highly recommend Specialized Medical for their cardiac monitoring services."</p>
+                <div class="svc-case-card__stars" aria-hidden="true"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"></div>
+                <p class="svc-case-card__by">— Michael R, M.D.</p>
+              </div>
+            </article>
+            <article id="cp-5" class="svc-case-card">
+              <div>
+                <div class="svc-case-card__media">
+                  <img src="images/figma-services/case-05.jpg" alt="" loading="lazy" decoding="async">
+                </div>
+                <p class="svc-case-card__caption">Example of the detail captured and reported by Specialized Medical.</p>
+              </div>
+              <div>
+                <span class="svc-case-card__tag">Case Study 05 (Lead Wire System)</span>
+                <h2 class="svc-case-card__title">A Life-Saving Second Opinion</h2>
+                <p class="svc-case-card__body">"I am an Internal Medicine doctor located in Brooklyn, NY and applied a Specialized Medical Cardiac Monitor to a female patient complaining of cardiac related issues. The patient wore a Cardiac Event Monitor and on the 5th day into the test at approximately 9:00 a.m., the patient experienced a cardiac episode that caused her to call me. I immediately had the patient go to hospital emergency room where I met her. I removed the monitor as they admitted her and sent the data into Specialized Medical. Shortly thereafter, I received a phone call on my cellular number that Specialized Medical found a significant cardiac arrhythmia. After reviewing the cardiac reports supplied by Specialized Medical, I called the hospital and forwarded the test results to the 'Fellow Cardiologist' who to my surprise was in the process of releasing my patient because they could not find anything wrong. When the cardiologist at the hospital received the test results they determined that the patient required immediate medical care and scheduled the necessary procedures to take place. If it was not for Specialized Medical's technology and service I am not sure if this patient would be around today."</p>
+                <div class="svc-case-card__stars" aria-hidden="true"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"></div>
+                <p class="svc-case-card__by">- Dr. Catalina R.S.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section" aria-label="Reporting proof">
+        <div class="figma-container">
+          <div class="figma-proof-patient-experience figma-proof-patient-experience--split figma-proof-patient-experience--centered">
+            <div class="figma-proof-patient-experience__content">
+              <h2 class="figma-h2 figma-h2--left figma-proof-patient-experience__title">
+                Reporting that supports faster
+                <span class="figma-h2__accent">clinical decisions</span>
+              </h2>
+              <p class="figma-proof-patient-experience__support">
+                EMR-ready final reports with a workflow designed for physician
+                review, interpretation, dating, and signature.
+              </p>
+            </div>
+            <div class="figma-proof-patient-experience__media figma-proof-patient-experience__media--pdf">
+              <div class="figma-proof-patient-experience__pdf-wrap">
+                <img
+                  class="figma-proof-patient-experience__pdf-preview"
+                  src="images/figma-services/report-sample.jpg"
+                  alt="Sample report preview"
+                  width="520"
+                  height="360"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <a
+                  class="figma-proof-patient-experience__pdf-open"
+                  href="documents/SAMPLE-04-16-2026-HolterL1-CA-1.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Open in a New tab</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+﻿    <footer class="site-footer site-footer--figma">
+      <div class="figma-container">
+        <div class="figma-footer__hr" aria-hidden="true"></div>
+        <div class="figma-footer__main">
+          <div class="figma-footer__brand">
+            <a href="./" class="figma-brand figma-brand--footer">
+              <img class="figma-brand__mark" src="images/figma-assets/Group 1261157085.svg" alt="" width="412" height="90" decoding="async">
+            </a>
+            <p class="figma-footer__tagline">Turnkey cardiac monitoring. Live ECG data. S-Patch as the primary featured system.</p>
+          </div>
+          <div class="figma-footer__contact">
+            <nav class="figma-footer__nav" aria-label="Footer">
+              <a href="./">Home</a>
+              <a href="about.html">About Us</a>
+             <a href="services.html">Services</a>
+              <a href="faq.html">FAQs</a>
+              <a href="contact.html">Contact</a>
+              <a href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
+            </nav>
+            <div class="figma-footer__line">
+              <span class="figma-footer__icon figma-footer__icon--phone" aria-hidden="true">
+                <img src="icons/vector3527-jgyk.svg" alt="Phone Icon" width="20" height="20" decoding="async">
+              </span>
+              <a class="figma-footer__link" href="tel:+18557732633">
+                <span class="figma-footer__muted">1-855-SPEC-MED</span> 
+                <span class="figma-footer__strong">(1-855-773-2633)</span>
+              </a>
+            </div>
+            <div class="figma-footer__line">
+              <img src="icons/fi62447103527-gtjs.svg" alt="" width="20" height="20" decoding="async">
+              <a href="mailto:info@specialized-med.com">info@specialized-med.com</a>
+            </div>
+            <div class="figma-footer__line">
+              <img src="images/figma-assets/location_icon.png" alt="" width="20" height="20" decoding="async">
+              <p class="figma-footer__address">Specialized Medical, LLC 34145 Pacific Coast Highway, #700 Dana Point, CA 92629</p>
+            </div>
+          </div>
+        </div>
+        <div class="figma-footer__triple">
+          <span>Mobile Cardiac Telemetry</span>
+          <span>Holter Monitoring</span>
+          <span>Event Monitoring</span>
+        </div>
+        <div class="figma-footer__hr" aria-hidden="true"></div>
+        <div class="figma-footer__bottom">
+          <p class="figma-footer__copy">© <span id="footer-year">2026</span> Specialized Medical, LLC. All rights reserved.</p>
+          <div class="figma-footer__social">
+            <img src="images/figma-assets/hipaa-badge.png" alt="HIPAA" width="69" height="20" class="figma-footer__hipaa" loading="lazy" decoding="async">
+            <a href="https://www.facebook.com/specializedmedical" class="figma-footer__fb" aria-label="Facebook">
+              <img src="images/facebook-like.jpg" alt="Like us on Facebook" width="90" height="26" loading="lazy" decoding="async">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+  </div>
+  <script src="js/main.js?v=20260430" defer></script>
+</body>
+</html>
