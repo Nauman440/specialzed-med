@@ -13,6 +13,9 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     X-Frame-Options = "SAMEORIGIN"
+    # Netlify is staging only (production is Tomcat): keep every page, image,
+    # sitemap.xml and llms.txt out of search indexes.
+    X-Robots-Tag = "noindex, nofollow"
 
 [[headers]]
   for = "/mobile-cardiac-telemetry-mct"

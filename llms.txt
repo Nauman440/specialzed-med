@@ -9,23 +9,23 @@
 - [Live ECG Monitoring](https://www.specialized-med.com/live-ecg-monitoring.html): How live ECG transmission, operational test-status visibility and clinical communication work.
 - [Cardiac Monitoring for Cardiology Practices](https://www.specialized-med.com/cardiology-practice-cardiac-monitoring.html): Implementation, staff roles, patient support, multi-location operations, reporting and electronic signature.
 - [S-Patch Cardiac Monitoring System](https://www.specialized-med.com/s-patch-cardiac-monitoring-system.html): Equipment specifications, supported studies, transmission workflow, patient support and FAQs.
-- [24–48 Hour Holter Monitoring](https://www.specialized-med.com/holter-monitoring-services.html), [Extended Holter Through 7 Days](https://www.specialized-med.com/long-term-holter-monitoring.html) and [8–14 Day Extended Holter](https://www.specialized-med.com/extended-holter-monitoring-8-14-days.html): Continuous ECG recording; findings in the final report.
-- [Cardiac Event Monitoring](https://www.specialized-med.com/cardiac-event-monitoring.html): Event monitoring for prescribed studies of up to 30 days.
+- [24–48 Hour Holter Monitoring](https://www.specialized-med.com/holter-monitoring-services.html), [Long-Term Holter Monitoring, more than 48 hours through 7 days](https://www.specialized-med.com/long-term-holter-monitoring.html) and [Extended Holter Monitoring, more than 7 days through 14 days](https://www.specialized-med.com/extended-holter-monitoring-8-14-days.html): Continuous ECG recording; findings in the final report.
+- [Cardiac Event Monitoring](https://www.specialized-med.com/cardiac-event-monitoring.html): Event monitoring for prescribed studies of 1–30 days.
 - [Mobile Cardiac Telemetry](https://www.specialized-med.com/mobile-cardiac-telemetry-mct.html) and [Post-TAVR Cardiac Monitoring](https://www.specialized-med.com/post-tavr-cardiac-monitoring.html): Live MCT program support, including selected post-TAVR pathways.
 - [Monitoring Equipment](https://www.specialized-med.com/services/equipment.html): Current monitoring-equipment options and device-specific specifications.
 - [Frequently Asked Questions](https://www.specialized-med.com/faq.html), [About Specialized Medical](https://www.specialized-med.com/about.html) and [Contact](https://www.specialized-med.com/contact.html).
 
 ## Cardiac monitoring services
 
-Specialized Medical LLC provides nationwide ambulatory cardiac monitoring services for physician practices, cardiology groups, hospitals and health systems. Supported services include 24–48 hour Holter Monitoring, Long-Term Holter Monitoring for more than 48 hours through 7 days, Extended Holter Monitoring for 8–14 days, Cardiac Event Monitoring for up to 30 days and Mobile Cardiac Telemetry for up to 30 days.
+Specialized Medical LLC provides nationwide ambulatory cardiac monitoring services for physician practices, cardiology groups, hospitals and health systems. Supported services include 24–48 hour Holter Monitoring, Long-Term Holter Monitoring for more than 48 hours through 7 days, Extended Holter Monitoring for more than 7 days through 14 days, Cardiac Event Monitoring for 1–30 days and Mobile Cardiac Telemetry (MCT) for 1–30 days.
 
 For supported LIVE STREAMING studies, Specialized Medical can follow operational indicators such as monitor battery, electrode contact, monitor-to-phone Bluetooth connection, phone-to-network cellular connection and successful ECG data transmission. When an operational issue is identified, the team can contact the patient and help troubleshoot. Operational visibility is not the same as a clinical diagnosis or clinical alert.
 
 Holter and longer Holter findings are presented after the final report is generated. Qualifying Event Monitoring and Mobile Cardiac Telemetry findings may be presented during the study according to the ordering physician's prescribed notification protocol, followed by a final report.
 
-Selected 24–48 hour and 3–7 day non-live Holter configurations are available for patients who refuse to carry the assigned cellular phone. These configurations record ECG for later analysis and do not provide live operational test-status visibility during wear.
+Selected 24–48 hour and 3–7 day non-live Holter configurations are available for patients who are unable or unwilling to carry the assigned monitoring phone. These configurations record ECG for later analysis and do not provide live operational test-status visibility during wear.
 
-The assigned monitoring phone uses available AT&T, T-Mobile and Verizon service. Connectivity varies with location and network conditions and uninterrupted coverage is not guaranteed.
+The assigned monitoring phone connects to the monitor by Bluetooth. Specialized Medical's Always Connected technology supports five cellular networks across two countries: AT&T, T-Mobile and Verizon in the United States, and Telcel and AT&T Mexico in Mexico. This expanded connectivity helps maintain live ECG data transmission in supported monitoring configurations, subject to available coverage and network conditions. Connectivity varies with location and network conditions and uninterrupted coverage is not guaranteed.
 
 Specialized Medical provides monitoring technology, operational support, review workflows and communication support. Test selection, interpretation and patient-care decisions remain with the treating physician and healthcare organization.
 
@@ -41,7 +41,7 @@ Operational test-status visibility is separate from clinical notification. Holte
 
 Live ECG monitoring does not mean that one dedicated person manually watches every heartbeat continuously. It does not replace 911, emergency medical services, physician judgment or the treating physician's emergency instructions.
 
-The assigned phone uses available AT&T, T-Mobile and Verizon service and is configured as a monitoring gateway rather than a general-purpose smartphone.
+The assigned phone supports five cellular networks (AT&T, T-Mobile and Verizon in the United States; Telcel and AT&T Mexico in Mexico) and is configured as a monitoring gateway rather than a general-purpose smartphone.
 
 ## Cardiology-practice program facts
 
@@ -63,9 +63,10 @@ The assigned phone uses available AT&T, T-Mobile and Verizon service and is conf
 
 - S-Patch is a compact dual-disk wearable ECG monitoring system with one thin connecting lead.
 - Stated weight: 0.6 oz.
-- Stated battery duration: minimum 10 days.
-- Water-resistance rating: IP55.
-- Supported wear duration: up to 30 days under the prescribed workflow.
+- Current validated battery specification: minimum 10 days per battery (one battery is not stated to last 30 days).
+- Single-lead ECG; Bluetooth connection to the monitoring phone; symptom logging on the phone.
+- IP55 dust and splash resistance; IP55 is not a waterproof rating. Electrodes are repositioned only according to approved patient instructions.
+- Prescribed wear: up to 30 days, with battery handling under the support workflow.
 - Supported study paths include Holter, Long-Term Holter, Extended Holter, Cardiac Event Monitoring and Mobile Cardiac Telemetry.
 - Supported live workflows use a dedicated cellular phone for ECG transmission and operational test-status visibility.
 

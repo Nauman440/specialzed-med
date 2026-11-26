@@ -34,23 +34,28 @@ FAQS = [
      "studies. One thin lead connects the two components, and the system works with a dedicated cellular phone to "
      "transmit ECG data in supported live-monitoring workflows."),
     ("Which cardiac monitoring studies can use S-Patch?",
-     "Specialized Medical uses the S-Patch platform to support Holter, Long-Term Holter, Extended Holter, Cardiac "
-     "Event Monitoring and Mobile Cardiac Telemetry, depending on the physician's order and the selected workflow."),
+     "Specialized Medical uses the S-Patch platform to support Holter Monitoring, Long-Term Holter Monitoring, Extended "
+     "Holter Monitoring, Cardiac Event Monitoring and Mobile Cardiac Telemetry (MCT), depending on the physician's order and the selected workflow."),
     ("How much does the S-Patch monitor weigh?",
      "The S-Patch system weighs approximately 0.6 ounces. Its two circular components are designed to be compact and "
      "unobtrusive during normal daily activity."),
     ("How long does the S-Patch battery last?",
-     "The S-Patch battery lasts a minimum of 10 days under the stated system specification. A study may last up to "
-     "30 days, with battery handling managed according to the prescribed test and support workflow."),
+     "The current validated S-Patch battery specification is a minimum of 10 days per battery. A prescribed study "
+     "may last up to 30 days; a study longer than the battery specification includes battery handling managed "
+     "according to the prescribed test and support workflow. A single battery is not stated to last 30 days."),
     ("Is the S-Patch water-resistant?",
-     "Yes. The S-Patch is rated IP55, which means it is water-resistant for everyday wear. Patients should still "
-     "follow the specific use and care instructions supplied with their prescribed study."),
+     "The S-Patch is rated IP55, which indicates resistance to dust and water splashes during everyday wear. IP55 is "
+     "not a waterproof rating. Patients should follow the approved use and care instructions supplied with their "
+     "prescribed study, including any guidance on showering and on repositioning electrodes, which should be done "
+     "only according to those approved patient instructions."),
     ("Does S-Patch transmit ECG data live?",
      "In Specialized Medical's supported live-monitoring workflows, S-Patch ECG data is transmitted through a "
      "dedicated cellular phone to the monitoring platform. This removes manual batch uploading and lets the support "
      "team follow operational study status while the test is underway."),
     ("What does the dedicated monitoring phone do?",
-     "The preconfigured phone connects to the S-Patch and sends ECG data over an available cellular network. Its "
+     "The preconfigured phone connects to the S-Patch by Bluetooth and sends ECG data over one of five supported "
+     "cellular networks: AT&T, T-Mobile and Verizon in the United States, and Telcel and AT&T Mexico in Mexico, "
+     "subject to available coverage. Its "
      "patient-facing functions are intentionally limited to device status and symptom logging, helping keep the "
      "study workflow simple."),
     ("What happens if an electrode, battery or connection issue occurs?",
@@ -68,19 +73,19 @@ FAQS = [
 
 # (page link, client label, duration, how S-Patch supports it, clinical communication)
 PATHS = [
-    ("holter-monitoring-services.html", "Holter", "24–48 hours",
+    ("holter-monitoring-services.html", "Holter Monitoring", "24–48 hours",
      "Continuous ECG acquisition with streamlined enrollment and disconnect.",
      "Results are provided in the final report after the recording is processed."),
-    ("long-term-holter-monitoring.html", "Long-Term Holter", "More than 48 hours to 7 days",
-     "Compact wear and at least 10 days of stated battery duration support longer collection.",
+    ("long-term-holter-monitoring.html", "Long-Term Holter Monitoring", "More than 48 hours through 7 days",
+     "Compact wear and a 10-day minimum battery specification support longer collection.",
      "Results are provided in the final report."),
-    ("extended-holter-monitoring-8-14-days.html", "Extended Holter", "8–14 days",
+    ("extended-holter-monitoring-8-14-days.html", "Extended Holter Monitoring", "More than 7 days through 14 days",
      "The same wearable platform continues the study under the ordered configuration.",
      "Results are provided in the final report."),
-    ("cardiac-event-monitoring.html", "Cardiac Event Monitoring", "Up to 30 days",
+    ("cardiac-event-monitoring.html", "Cardiac Event Monitoring", "1–30 days",
      "Digital symptom entries align patient-reported events with the ECG timeline.",
      "Qualifying findings follow the physician-prescribed notification protocol."),
-    ("mobile-cardiac-telemetry-mct.html", "Mobile Cardiac Telemetry", "Up to 30 days",
+    ("mobile-cardiac-telemetry-mct.html", "Mobile Cardiac Telemetry (MCT)", "1–30 days",
      "Live ECG transmission supports ongoing monitoring-center review under the ordered service.",
      "Qualifying findings follow the physician-prescribed notification protocol."),
 ]
@@ -297,9 +302,9 @@ def body():
           </div>
           <ul class="landing-hero__points" aria-label="Key S-Patch benefits">
             <li>0.6 oz</li>
-            <li>10+ day battery</li>
+            <li>10-day minimum battery</li>
             <li>IP55</li>
-            <li>Up to 30-day wear</li>
+            <li>Up to 30-day prescribed wear</li>
           </ul>
         </div>
       </div>
@@ -329,14 +334,18 @@ def body():
         <aside class="landing-spec-panel" aria-label="S-Patch equipment specifications">
           <h3 class="landing-h3">S-Patch specifications</h3>
           <dl class="landing-spec-list">
-            <div><dt>0.6 oz</dt><dd>Total stated weight</dd></div>
-            <div><dt>10+ days</dt><dd>Minimum battery duration</dd></div>
-            <div><dt>IP55</dt><dd>Water-resistant rating</dd></div>
-            <div><dt>Up to 30 days</dt><dd>Supported wear duration</dd></div>
+            <div><dt>Dual-disk</dt><dd>Two components, one thin lead</dd></div>
+            <div><dt>~0.6 oz</dt><dd>Approximate total weight</dd></div>
+            <div><dt>Single-lead</dt><dd>ECG recording</dd></div>
+            <div><dt>10 days</dt><dd>Current validated battery specification (minimum, per battery)</dd></div>
+            <div><dt>IP55</dt><dd>Dust and splash resistance (not waterproof)</dd></div>
+            <div><dt>Bluetooth</dt><dd>Monitor-to-phone connection</dd></div>
+            <div><dt>Symptom logging</dt><dd>On the dedicated phone</dd></div>
+            <div><dt>Up to 30 days</dt><dd>Prescribed wear, with battery handling</dd></div>
             <div><dt>1.57 in</dt><dd>Larger disk diameter</dd></div>
             <div><dt>1.41 in</dt><dd>Smaller disk diameter</dd></div>
           </dl>
-          <p class="landing-spec-panel__note">Use and care always follow the instructions for the prescribed study. A longer study may require battery handling under the support workflow. Compare all <a href="services/equipment.html">monitoring equipment options</a>.</p>
+          <p class="landing-spec-panel__note">One battery is not stated to last 30 days: a study longer than the battery specification includes battery handling under the support workflow. Electrodes are repositioned only according to the approved patient instructions, and use and care always follow the instructions for the prescribed study. Compare all <a href="services/equipment.html">monitoring equipment options</a>.</p>
         </aside>
       </div>
     </section>
@@ -383,11 +392,12 @@ def body():
       <div class="figma-container">
         <p class="landing-eyebrow">Always Connected workflow</p>
         <h2 id="spatch-transmission-heading" class="landing-h2">ECG Transmission Without <span class="landing-h2__accent">Manual Uploading</span></h2>
-        <p class="landing-p landing-section__intro">The assigned monitoring phone connects to S-Patch over Bluetooth and transmits through an available AT&amp;T, T-Mobile or Verizon cellular network. The phone is dedicated to the study and keeps the patient experience intentionally simple.</p>
+        <p class="landing-p landing-section__intro">The assigned monitoring phone connects to S-Patch over Bluetooth and transmits ECG data over a supported cellular network. The phone is dedicated to the study and keeps the patient experience intentionally simple.</p>
+        <p class="landing-p landing-section__intro">Specialized Medical's Always Connected technology supports five cellular networks across two countries: AT&amp;T, T-Mobile and Verizon in the United States, and Telcel and AT&amp;T Mexico in Mexico. This expanded connectivity helps maintain live ECG data transmission in supported monitoring configurations, subject to available coverage and network conditions.</p>
         <div class="landing-feature-grid" role="list">
           <article class="landing-feature-card" role="listitem"><h3 class="landing-h3">Only two patient screens</h3><p class="landing-p">Device Status and Log Symptoms—without web browsing, email, games or unnecessary settings.</p></article>
           <article class="landing-feature-card" role="listitem"><h3 class="landing-h3">Automatic transmission</h3><p class="landing-p">Supported live workflows send ECG data as it is recorded, removing end-of-study batch uploads and related delays. See <a href="live-ecg-monitoring.html">LIVE ECG monitoring</a>.</p></article>
-          <article class="landing-feature-card" role="listitem"><h3 class="landing-h3">Multi-carrier resilience</h3><p class="landing-p">The cellular workflow is designed to use available carrier coverage across diverse patient environments, including many rural areas.</p></article>
+          <article class="landing-feature-card" role="listitem"><h3 class="landing-h3">Five supported networks</h3><p class="landing-p">AT&amp;T, T-Mobile and Verizon in the United States, and Telcel and AT&amp;T Mexico in Mexico, so the workflow can use available coverage across diverse patient environments.</p></article>
         </div>
       </div>
     </section>
